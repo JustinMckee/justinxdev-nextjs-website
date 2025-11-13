@@ -1,0 +1,32 @@
+.media-stack {
+	display: grid;
+	grid-template-areas: 'stack';
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	min-height: 50vh;
+	// position: relative;
+	// height: 100vh;
+	.media-top,
+	.media-bottom {
+		grid-area: stack;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		.media-wrapper {
+			padding: 0.25rem;
+			background-color: hsla(0, 0%, 100%, 0.1);
+			border: 1px solid hsla(0, 0%, 100%, 0.05);
+			border-radius: 0.5rem;
+			-webkit-backdrop-filter: blur(2rem);
+			backdrop-filter: blur(2rem);
+			box-shadow: 0 3rem 4rem 1rem rgba(0, 0, 0, 0.5);
+		}
+	}
+	.media-top {
+		transform: translate(30%, -15%);
+		z-index: 5;
+	}
+	.media-bottom {
+		transform: translate(0, 15%);
+	}
+}
