@@ -30,19 +30,28 @@ const logos = [
 ];
 
 export default function LogoGrid() {
-	const [displayedLogos, setDisplayedLogos] = useState<typeof logos>(
-		logos.slice(0, 5)
-	);
-	const logoRefs = useRef<(HTMLDivElement | null)[]>([]);
+	// Logos we start displaying when component renders. We don't want to ever update this during an animation cycle. It would rerender the component.
+	const [currentlyDisplayedLogos, setCurrentlyDisplayedLogos] = useState<
+		typeof logos
+	>(logos.slice(0, 5));
+	// Ref to keep track of all logos that have already been displayed.
+	const displayedLogosRef = useRef(currentlyDisplayedLogos);
+	// Ref to keep track of all available slots for logos to be displayed in.
+	const logoSlotRefs = useRef<(HTMLDivElement | null)[]>([]);
+	const usedLogoSlotsRef = useRef<Set<number>>(new Set());
+	// The timeline we will use to control the continuous animation.
 	const masterTimelineRef = useRef<gsap.core.Timeline | null>(null);
-	const nextLogoIndexRef = useRef(5); // Start from 6th logo (index 5)
+	// The first index of the array that we are allowed to pick logos from. If there are 5 slots, we start picking from index 5 (6th logo) onward.
+	const nextLogoIndexRef = useRef(5);
 
 	const startContinuousAnimation = (masterTl: gsap.core.Timeline) => {
 		const animateNextReplacement = () => {
 			// Get available logos that are not currently displayed
-			const currentlyDisplayedNames = displayedLogos.map((logo) => logo.name);
+			const previouslyDisplayedLogos = displayedLogosRef.current.map(
+				(logo) => logo.name
+			);
 			const availableLogos = logos.filter(
-				(logo) => !currentlyDisplayedNames.includes(logo.name)
+				(logo) => !previouslyDisplayedLogos.includes(logo.name)
 			);
 
 			// If no available logos (shouldn't happen with our logo count), restart from beginning
@@ -54,39 +63,54 @@ export default function LogoGrid() {
 			// Pick a random logo from available ones
 			const randomLogoIndex = Math.floor(Math.random() * availableLogos.length);
 			const nextLogo = availableLogos[randomLogoIndex];
+			// Update the displayed logos ref to include the new logo
+			displayedLogosRef.current = [...displayedLogosRef.current, nextLogo];
 
-			// Pick random position (0-4) to replace
-			const randomPosition = Math.floor(Math.random() * 5);
-			const logoRef = logoRefs.current[randomPosition];
+			const chooseUnusedLogoSlot = () => {
+				if (usedLogoSlotsRef.current.size === 5) {
+					usedLogoSlotsRef.current.clear();
+				}
 
-			if (!logoRef) return;
+				let slot: number;
+				do {
+					// Pick random slot to replace
+					slot = Math.floor(Math.random() * 5);
+				} while (usedLogoSlotsRef.current.has(slot));
+
+				return slot;
+			};
+			const randomLogoSlot = chooseUnusedLogoSlot();
+			const logoSlot = logoSlotRefs.current[randomLogoSlot];
+			usedLogoSlotsRef.current.add(randomLogoSlot);
+
+			if (!logoSlot) return;
 
 			// Fade out current logo at random position
 			masterTl
-				.to(logoRef, {
+				.to(logoSlot, {
 					opacity: 0,
 					duration: 0.3,
 					ease: 'power2.inOut',
 				})
 				// Update the logo during opacity 0
 				.call(() => {
-					setDisplayedLogos((prev) => {
+					setCurrentlyDisplayedLogos((prev) => {
 						const newDisplayed = [...prev];
-						newDisplayed[randomPosition] = nextLogo;
+						newDisplayed[randomLogoSlot] = nextLogo;
 						return newDisplayed;
 					});
 				})
 				// Fade in new logo
-				.to(logoRef, {
+				.to(logoSlot, {
 					opacity: 1,
 					duration: 0.3,
 					ease: 'power2.inOut',
 				})
-				// Wait 3 seconds before next replacement
+				// Wait 1 seconds before next replacement
 				.to(
 					{},
 					{
-						duration: 3,
+						duration: 1,
 						onComplete: animateNextReplacement,
 					}
 				);
@@ -97,7 +121,7 @@ export default function LogoGrid() {
 
 	useEffect(() => {
 		// Set initial opacity to 1
-		gsap.set(logoRefs.current, { opacity: 1 });
+		gsap.set(logoSlotRefs.current, { opacity: 1 });
 
 		// Create master timeline for infinite animation
 		const masterTl = gsap.timeline({ repeat: -1 });
@@ -123,13 +147,13 @@ export default function LogoGrid() {
 				href='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css'
 			/>
 			<div className='flex flex-wrap justify-center items-center my-8'>
-				{displayedLogos.map((logo, index) => (
+				{currentlyDisplayedLogos.map((logo, index) => (
 					<div
 						key={`${logo.name}-${index}`}
 						className='flex-1 basis-1/5 aspect-square'>
 						<div
 							ref={(el) => {
-								logoRefs.current[index] = el;
+								logoSlotRefs.current[index] = el;
 							}}
 							className='w-full h-full m-4 flex items-center justify-center flex-col gap-2'>
 							<i className={`${logo.class} text-7xl`}></i>

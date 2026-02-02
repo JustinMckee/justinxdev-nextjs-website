@@ -1,0 +1,84 @@
+.slide-deck {
+	position: relative;
+	.slide {
+		padding: 0.25rem;
+
+		border-radius: 0.5rem;
+		-webkit-backdrop-filter: blur(2rem);
+		backdrop-filter: blur(2rem);
+		box-shadow: 0 3rem 4rem 1rem rgba(0, 0, 0, 0.5);
+		.image-wrapper {
+			overflow: hidden;
+			border-radius: 0.5rem;
+			background-color: hsla(0, 0%, 100%, 0.1);
+			border: 1px solid hsla(0, 0%, 100%, 0.05);
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					135deg,
+					transparent 0%,
+					transparent 40%,
+					rgba(0, 0, 0, 0.6) 66%,
+					rgba(0, 0, 0, 0.8) 100%
+				);
+				border-radius: 0.5rem;
+				pointer-events: none;
+			}
+		}
+	}
+}
+.curtain {
+	--curtain-opacity: 1;
+	--cutout-width: 66%;
+	--cutout-height: 100%;
+	--cutout-left: calc(
+		(100% - var(--cutout-width)) / 2
+	); /* Center horizontally */
+	--cutout-top: calc((100% - var(--cutout-height)) / 2); /* Center vertically */
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+			to right,
+			rgba(0, 0, 0, var(--curtain-opacity)) 0%,
+			rgba(0, 0, 0, var(--curtain-opacity)) var(--cutout-left),
+			transparent var(--cutout-left),
+			transparent calc(var(--cutout-left) + var(--cutout-width)),
+			rgba(0, 0, 0, var(--curtain-opacity))
+				calc(var(--cutout-left) + var(--cutout-width)),
+			rgba(0, 0, 0, var(--curtain-opacity)) 100%
+		),
+		linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, var(--curtain-opacity)) 0%,
+			rgba(0, 0, 0, var(--curtain-opacity)) var(--cutout-top),
+			transparent var(--cutout-top),
+			transparent calc(var(--cutout-top) + var(--cutout-height)),
+			rgba(0, 0, 0, var(--curtain-opacity))
+				calc(var(--cutout-top) + var(--cutout-height)),
+			rgba(0, 0, 0, var(--curtain-opacity)) 100%
+		);
+	border-radius: 0.5rem;
+	pointer-events: none;
+	z-index: 1;
+}
+.content {
+	position: absolute;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 4rem;
+	width: 50%;
+	right: 0;
+}

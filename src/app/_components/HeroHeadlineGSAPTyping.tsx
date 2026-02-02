@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
+import styles from './HeroHeadlineGSAPTyping.module.scss';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
@@ -12,8 +13,9 @@ export default function HeadlineGSAP() {
 	}, []);
 
 	return (
-		<div className='gs-text-headline-animation'>
+		<div className={`${styles['font-gradient']} gs-text-headline-animation`}>
 			<span className='gs-proposition block'>Hi, I&apos;m&nbsp;</span>
+
 			<span className='gs-noun-wrapper'>
 				<span className='gs-highlight'></span>
 				<span className='gs-noun'></span>
@@ -69,7 +71,7 @@ const animateTagline = () => {
 		});
 		// animate the noun, highlight, and adjective.
 		phraseTimeline
-			.to({}, { delay: 0.75 }) // initial delay
+			.to({}, { delay: 0.5 }) // initial delay
 			// .set('.gs-noun', { y: '1em' })
 			// .to(
 			// 	'.gs-highlight',
@@ -105,7 +107,7 @@ const animateTagline = () => {
 				text: phrase.adjective,
 				ease: `steps(${phrase.adjective.length})`,
 			})
-			.to({}, { duration: 1 });
+			.to({}, { duration: 0.5 }); // hold before reversing
 
 		masterTimeline.add(phraseTimeline);
 	});

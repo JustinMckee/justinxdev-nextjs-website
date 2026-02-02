@@ -197,7 +197,7 @@ const setupPinnedAnimations = () => {
 		if (topImage) gsap.set(topImage, { opacity: 0 });
 		if (bottomImage) gsap.set(bottomImage, { opacity: 0 });
 		gsap.set(paragraph, { opacity: 0, y: 20, height: '0px' });
-		gsap.set(heading, { opacity: 0.1 });
+		gsap.set(headingModifier, { opacity: 0.1 });
 
 		// .to(paragraph, { height: `${paragraphHeight}px`, duration: 0.5 }, '<')
 		// .to(paragraph, {
@@ -209,16 +209,17 @@ const setupPinnedAnimations = () => {
 
 		// Animate heading to full opacity
 		singleCategoryTimeline
-			.to(heading, {
-				opacity: 1,
-				duration: 10,
-				ease: 'power4.inOut',
-			})
+			// .to(heading, {
+			// 	opacity: 1,
+			// 	duration: 10,
+			// 	ease: 'power4.inOut',
+			// })
 			.to(
 				headingModifier,
 				{
+					opacity: 1,
 					backgroundPosition: '0% 0',
-					duration: 15,
+					duration: 25,
 					ease: 'power4.inOut',
 				},
 				'<'

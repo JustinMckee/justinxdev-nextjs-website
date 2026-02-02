@@ -23,9 +23,19 @@ export const Header = () => {
 							About
 						</a>
 						<a
+							href='#skills'
+							className='text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
+							Skills
+						</a>
+						<a
+							href='#projects'
+							className='text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
+							Projects
+						</a>
+						<a
 							href='#collage'
 							className='text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
-							Work
+							Experience
 						</a>
 						<a
 							href='#contact'

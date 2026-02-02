@@ -4,6 +4,8 @@ import WorkCategoriesGSAPSection from '@/app/_components/WorkCategoriesGSAPSecti
 import LogoGrid from '@/app/_components/LogoGrid';
 import Image from 'next/image';
 import styles from './page.module.scss';
+import { Slider, seedSliderData } from './ui/Slider/Slider';
+import { SlideDeck } from './ui/SlideDeck/SlideDeck';
 
 export default function Home() {
 	return (
@@ -75,7 +77,32 @@ export default function Home() {
 				/>
 			</section>
 			<WorkCategoriesGSAPSection />
-			<section className='min-h-screen'></section>
+			<section
+				id='project-stack'
+				className='w-full min-h-screen flex-col py-35'>
+				<div className='w-full max-w-9xl mx-auto'>
+					<h2 className='text-5xl font-bold mb-8 leading-tight'>
+						Recent Projects
+					</h2>
+					<p className='text-3xl text-center mb-16'>
+						Some of the projects I've worked on recently.
+					</p>
+					<SlideDeck />
+				</div>
+			</section>
+			{/* <section
+				id='projects'
+				className='w-full min-h-screen py-35'>
+				<div className='w-full max-w-9xl mx-auto'>
+					<h2 className='text-5xl font-bold mb-8 leading-tight'>
+						Recent Projects
+					</h2>
+					<p className='text-3xl text-center mb-16'>
+						Some of the projects I've worked on recently.
+					</p>
+				</div>
+				<Slider data={seedSliderData} />
+			</section> */}
 		</article>
 	);
 }
