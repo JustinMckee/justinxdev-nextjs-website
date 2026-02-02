@@ -4,8 +4,8 @@ import WorkCategoriesGSAPSection from '@/app/_components/WorkCategoriesGSAPSecti
 import LogoGrid from '@/app/_components/LogoGrid';
 import Image from 'next/image';
 import styles from './page.module.scss';
-import { Slider, seedSliderData } from './ui/Slider/Slider';
-import { SlideDeck } from './ui/SlideDeck/SlideDeck';
+import { Slider, seedSliderData } from '../ui/Slider/Slider';
+import { SlideDeck } from '../ui/SlideDeck/SlideDeck';
 
 export default function Home() {
 	return (
