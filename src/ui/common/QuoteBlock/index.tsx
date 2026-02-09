@@ -3,9 +3,15 @@ import styles from './index.module.scss';
 import { Quote } from 'lucide-react';
 import { ImageStack } from '../ImageStack';
 
-export const QuoteBlock = ({ quote, attribution, images }: QuoteBlockProps) => {
+export const QuoteBlock = ({
+	layout = 'left',
+	quote,
+	attribution,
+	images,
+}: QuoteBlockProps) => {
 	return (
-		<div className='flex w-full flex-col lg:flex-row items-center'>
+		<div
+			className={`flex w-full items-center gap-12 py-12 ${layout === 'left' ? 'flex-col lg:flex-row' : ''} ${layout === 'right' ? 'flex-col-reverse lg:flex-row-reverse' : ''} ${layout === 'center' ? 'flex-col' : ''}`}>
 			<div className='w-full lg:w-[50%]'>
 				<figure>
 					<Quote size='2em' />
@@ -20,8 +26,12 @@ export const QuoteBlock = ({ quote, attribution, images }: QuoteBlockProps) => {
 					)}
 				</figure>
 			</div>
-			<div className='w-full lg:w-[50%]'>
-				<ImageStack images={images} />
+			<div
+				className={`w-full lg:w-[50%] my-12 md:my-24  ${layout === 'center' ? 'lg:my-24' : 'lg:my-0'}`}>
+				<ImageStack
+					layout={layout === 'left' ? 'right' : 'left'}
+					images={images}
+				/>
 			</div>
 		</div>
 	);
@@ -33,4 +43,5 @@ type QuoteBlockProps = {
 		source: string;
 	};
 	images: ImageProps[];
+	layout?: 'left' | 'center' | 'right';
 };

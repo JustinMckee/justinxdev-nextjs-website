@@ -30,6 +30,7 @@ export default function Page() {
 				]}
 			/>
 			<QuoteBlock
+				layout='center'
 				quote='Lorem ipsum dolar sit amet vin dictus solari alternus.'
 				attribution={{ source: 'lorem ipsum' }}
 				images={[
@@ -87,6 +88,7 @@ export default function Page() {
 						<StickyTrigger startOffset={-25}>
 							<StickyItem>
 								<ImageStack
+									layout='right'
 									images={[
 										{
 											src: '/hero-top.webp',
