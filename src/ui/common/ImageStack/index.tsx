@@ -1,8 +1,8 @@
 import Image, { ImageProps } from 'next/image';
 import styles from './index.module.scss';
 
-export const ImageStack = ({ images }: ImageStackProps) => (
-	<div className={`${styles['media-stack']}`}>
+export const ImageStack = ({ layout = 'left', images }: ImageStackProps) => (
+	<div className={`${styles['media-stack']} ${styles[layout]}`}>
 		{images.slice(0, 2).map((image, idx) => (
 			<div
 				key={idx + image.src.toString()}
@@ -22,5 +22,6 @@ export const ImageStack = ({ images }: ImageStackProps) => (
 );
 
 type ImageStackProps = {
+	layout?: 'left' | 'right';
 	images: ImageProps[];
 };

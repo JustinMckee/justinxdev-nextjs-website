@@ -3,9 +3,19 @@
 	grid-template-areas: 'stack';
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
-	// min-height: 50vh;
-	// position: relative;
-	// height: 100vh;
+
+	&.left {
+		.media-top {
+			transform: translate(-30%, -15%);
+		}
+	}
+
+	&.right {
+		.media-top {
+			transform: translate(30%, -15%);
+		}
+	}
+
 	.media-top,
 	.media-bottom {
 		grid-area: stack;
@@ -23,7 +33,6 @@
 		}
 	}
 	.media-top {
-		transform: translate(30%, -15%);
 		z-index: 5;
 	}
 	.media-bottom {
