@@ -26,13 +26,15 @@ export const QuoteBlock = ({
 					)}
 				</figure>
 			</div>
-			<div
-				className={`w-full lg:w-[50%] my-12 md:my-24  ${layout === 'center' ? 'lg:my-24' : 'lg:my-0'}`}>
-				<ImageStack
-					layout={layout === 'left' ? 'right' : 'left'}
-					images={images}
-				/>
-			</div>
+			{images && (
+				<div
+					className={`w-full lg:w-[50%] my-12 md:my-24  ${layout === 'center' ? 'lg:my-24' : 'lg:my-0'}`}>
+					<ImageStack
+						layout={layout === 'left' ? 'right' : 'left'}
+						images={images}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -42,6 +44,6 @@ type QuoteBlockProps = {
 	attribution?: {
 		source: string;
 	};
-	images: ImageProps[];
+	images?: ImageProps[];
 	layout?: 'left' | 'center' | 'right';
 };

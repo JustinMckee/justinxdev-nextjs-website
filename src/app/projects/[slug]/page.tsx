@@ -30,7 +30,7 @@ export default function Page() {
 				]}
 			/>
 			<QuoteBlock
-				layout='center'
+				layout='left'
 				quote='Lorem ipsum dolar sit amet vin dictus solari alternus.'
 				attribution={{ source: 'lorem ipsum' }}
 				images={[
@@ -104,12 +104,6 @@ export default function Page() {
 										},
 									]}
 								/>
-								{/* <Image
-									src='/hero-top.webp'
-									alt='Hero image of Justin McKee'
-									width='3200'
-									height='1973'
-								/> */}
 							</StickyItem>
 						</StickyTrigger>
 					</div>
