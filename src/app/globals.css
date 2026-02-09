@@ -71,3 +71,34 @@ body {
 		margin-bottom: 1.5em;
 	}
 }
+
+@layer utilities {
+	h1.fluid-font,
+	.h1.fluid-font {
+		font-size: clamp(var(--text-4xl), 4.5vw, var(--text-7xl));
+	}
+	h2.fluid-font,
+	.h2.fluid-font {
+		font-size: clamp(var(--text-3xl), 4vw, var(--text-6xl));
+	}
+	h3.fluid-font,
+	.h3.fluid-font {
+		font-size: clamp(var(--text-2xl), 3.5vw, var(--text-5xl));
+	}
+	h4.fluid-font,
+	.h4.fluid-font {
+		font-size: clamp(var(--text-xl), 3vw, var(--text-4xl));
+	}
+	h5.fluid-font,
+	.h5.fluid-font {
+		font-size: clamp(var(--text-lg), 2.5vw, var(--text-3xl));
+	}
+	h6.fluid-font,
+	.h6.fluid-font {
+		font-size: clamp(var(--text-base), 2vw, var(--text-2xl));
+	}
+	p.fluid-font,
+	.p.fluid-font {
+		font-size: clamp(var(--text-sm), 1.5vw, var(--text-base));
+	}
+}
