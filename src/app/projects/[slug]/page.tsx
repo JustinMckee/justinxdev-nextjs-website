@@ -11,6 +11,27 @@ import Image from 'next/image';
 export default function Page() {
 	return (
 		<>
+			{/* <h1 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h1>
+			<h2 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h2>
+			<h3 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h3>
+			<h4 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h4>
+			<h5 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h5>
+			<h6 className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</h6>
+			<p className='fluid-font'>
+				The quick fox jumped over the lazy brown dog.
+			</p> */}
 			<TitleBlock
 				heading='Lorem ipsum dolar sit amet.'
 				paragraph='Vin dictus solari vultron de equalibrium. Sor vin doc dolar sin plubirus de arnemium. Tolari san divium delirious espi polaris doctyle.'
@@ -49,9 +70,11 @@ export default function Page() {
 				]}
 			/>
 			<WithSticky>
-				<div className='flex flex-col md:flex-row gap-24 h-[100vh] items-center'>
+				<div className='flex flex-col md:flex-row gap-24 h-[66vh] items-center'>
 					<div className='md:flex-1'>
-						<h2>Lorem ipsum dolar sit amet vin dictus solairs.</h2>
+						<h2 className='fluid-font'>
+							Lorem ipsum dolar sit amet vin dictus solairs.
+						</h2>
 						<p>
 							Lorem ipsum dolar sit amet vin dictus solairs. Lorem ipsum dolar
 							sit amet vin dictus solairs. Lorem ipsum dolar sit amet vin dictus
@@ -61,7 +84,7 @@ export default function Page() {
 					</div>
 
 					<div className='md:flex-1 flex self-stretch items-center'>
-						<StickyTrigger startOffset={-25}>
+						<StickyTrigger startOffset={3}>
 							<StickyItem>
 								<Image
 									src='/hero-bottom.webp'
@@ -73,9 +96,11 @@ export default function Page() {
 						</StickyTrigger>
 					</div>
 				</div>
-				<div className='flex flex-col md:flex-row gap-24 h-[100vh] items-center'>
+				<div className='flex flex-col md:flex-row gap-24 h-[66vh] items-center'>
 					<div className='md:flex-1'>
-						<h2>Lorem ipsum dolar sit amet vin dictus solairs.</h2>
+						<h2 className='fluid-font'>
+							Lorem ipsum dolar sit amet vin dictus solairs.
+						</h2>
 						<p>
 							Lorem ipsum dolar sit amet vin dictus solairs. Lorem ipsum dolar
 							sit amet vin dictus solairs. Lorem ipsum dolar sit amet vin dictus
@@ -85,7 +110,7 @@ export default function Page() {
 					</div>
 
 					<div className='md:flex-1 flex self-stretch items-center'>
-						<StickyTrigger startOffset={-25}>
+						<StickyTrigger startOffset={3}>
 							<StickyItem>
 								<ImageStack
 									layout='right'
@@ -108,9 +133,11 @@ export default function Page() {
 						</StickyTrigger>
 					</div>
 				</div>
-				<div className='flex flex-col md:flex-row gap-24 h-[100vh] items-center'>
+				<div className='flex flex-col md:flex-row gap-24 h-[66vh] items-center'>
 					<div className='md:flex-1'>
-						<h2>Lorem ipsum dolar sit amet vin dictus solairs.</h2>
+						<h2 className='fluid-font'>
+							Lorem ipsum dolar sit amet vin dictus solairs.
+						</h2>
 						<p>
 							Lorem ipsum dolar sit amet vin dictus solairs. Lorem ipsum dolar
 							sit amet vin dictus solairs. Lorem ipsum dolar sit amet vin dictus
@@ -120,7 +147,7 @@ export default function Page() {
 					</div>
 
 					<div className='md:flex-1 flex self-stretch items-center'>
-						<StickyTrigger startOffset={-25}>
+						<StickyTrigger startOffset={3}>
 							<StickyItem>
 								<Image
 									src='/hero-bottom.webp'

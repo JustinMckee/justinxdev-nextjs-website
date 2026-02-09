@@ -85,69 +85,76 @@ function addStickyItemTimelines() {
 	const stickyWrapper = document.querySelector(`.${styles.wrapper}`);
 	const stickyTriggers = stickyWrapper?.querySelectorAll(`.${styles.trigger}`);
 
+	if (!stickyTriggers) return;
+
+	const triggers = Array.from(stickyTriggers);
+	// let prevRange = 0;
+
 	stickyTriggers?.forEach((trigger, index) => {
-		const item = trigger.querySelector(`.${styles.item}`);
+		const item = trigger.querySelector(`.${styles.item}`) as HTMLElement | null;
+		if (!item) return;
 
 		const startOffset = parseFloat(
 			trigger.getAttribute('data-start-offset') || '0',
 		);
 
-		// Calculate start position relative to center (50%)
-		// startOffset is in % relative to center
-		// Negative = lower (triggers earlier), Positive = higher (triggers later)
 		let startPosition: string;
 		if (startOffset === 0) {
-			startPosition = 'top center'; // Exactly at center
+			startPosition = 'top center';
 		} else if (startOffset > 0) {
-			startPosition = `top center-=${Math.abs(startOffset)}%`; // Below center
+			startPosition = `top center-=${Math.abs(startOffset)}%`;
 		} else {
-			startPosition = `top center+=${Math.abs(startOffset)}%`; // Above center
+			startPosition = `top center+=${Math.abs(startOffset)}%`;
 		}
 
-		console.log('Start position:', startPosition, 'Offset:', startOffset);
-
-		const viewportHeight = window.innerHeight;
-		const itemHeight = (item as HTMLElement).offsetHeight;
+		const triggerHeight = (trigger as HTMLElement).offsetHeight;
+		const itemHeight = item.offsetHeight;
 		const itemYOffsetPx =
 			startOffset !== 0
-				? -(Math.abs(startOffset) / 100) * viewportHeight - itemHeight / 2 // Convert % to pixels and invert
+				? -(Math.abs(startOffset) / 100) * triggerHeight - itemHeight / 2
 				: 0;
+
+		const nextTrigger = triggers[index + 1];
+		const isLast = index === triggers.length - 1;
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: trigger,
 				pin: item,
 				start: startPosition,
-				end: `bottom top`,
+				endTrigger: !isLast ? nextTrigger : undefined,
+				end: isLast ? `bottom center-=${triggerHeight}` : startPosition,
 				scrub: true,
 				pinSpacing: false,
 				markers: true,
 			},
 		});
 
-		// Fade-in and slide from right to left when element is pinned.
+		// const st = tl.scrollTrigger;
+		// if (st) {
+		// 	prevRange = st.end - st.start;
+		// }
+
 		tl.fromTo(
 			item,
 			{
-				opacity: 0, // start at 0 opacity
+				opacity: 0,
 				y: itemYOffsetPx,
-				x: '100px', // start from the right of where element is painted in DOM
+				x: '100px',
 			},
 			{
-				opacity: 1, // Fade-in
+				opacity: 1,
 				y: itemYOffsetPx,
-				x: '0px', // end at the true location of where the element is painted in the DOM - This animates it from right to left
+				x: '0px',
 				duration: 0.2,
 				ease: 'power2.out',
 			},
 		)
-			// Hold in place (visible)
 			.to(item, {
 				y: itemYOffsetPx,
 				duration: 0.6,
 				opacity: 1,
 			})
-			// Fade out at end
 			.to(item, {
 				opacity: 0,
 				y: itemYOffsetPx,

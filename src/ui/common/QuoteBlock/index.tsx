@@ -17,7 +17,7 @@ export const QuoteBlock = ({
 					<Quote size='2em' />
 					<blockquote
 						className={`text-xl md:text-3xl lg:text-[2vw] xl:text-4xl ${styles.blockquote}`}>
-						<p>{quote}</p>
+						<p className='h3 fluid-font'>{quote}</p>
 					</blockquote>
 					{attribution?.source && (
 						<figcaption>
