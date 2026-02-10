@@ -23,6 +23,7 @@ export const TitleBlock = ({
 				<ImageStack
 					layout={layout === 'left' ? 'right' : 'left'}
 					images={imageProps}
+					withTilt={true}
 				/>
 			</div>
 		</div>

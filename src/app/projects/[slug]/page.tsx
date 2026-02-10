@@ -7,6 +7,7 @@ import {
 	StickyTrigger,
 } from '@/ui/features/WithSticky';
 import Image from 'next/image';
+import { WithTilt } from '@/ui/features/WithTilt';
 
 export default function Page() {
 	return (
@@ -86,12 +87,14 @@ export default function Page() {
 					<div className='md:flex-1 flex self-stretch items-center'>
 						<StickyTrigger startOffset={3}>
 							<StickyItem>
-								<Image
-									src='/hero-bottom.webp'
-									alt='Hero image of Justin McKee'
-									width='3200'
-									height='1915'
-								/>
+								<WithTilt>
+									<Image
+										src='/hero-bottom.webp'
+										alt='Hero image of Justin McKee'
+										width='3200'
+										height='1915'
+									/>
+								</WithTilt>
 							</StickyItem>
 						</StickyTrigger>
 					</div>
