@@ -11,7 +11,7 @@ export const TitleBlock = ({
 		<div className={`grid grid-cols-8 md:grid-cols-16 py-24`}>
 			<div className='col-start-1 col-span-7 flex flex-col justify-between'>
 				<div>
-					<h1>{heading}</h1>
+					<h1 className='fluid-font'>{heading}</h1>
 				</div>
 				{paragraph && (
 					<div>
@@ -23,6 +23,7 @@ export const TitleBlock = ({
 				<ImageStack
 					layout={layout === 'left' ? 'right' : 'left'}
 					images={imageProps}
+					withTilt={true}
 				/>
 			</div>
 		</div>

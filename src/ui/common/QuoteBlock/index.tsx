@@ -17,7 +17,7 @@ export const QuoteBlock = ({
 					<Quote size='2em' />
 					<blockquote
 						className={`text-xl md:text-3xl lg:text-[2vw] xl:text-4xl ${styles.blockquote}`}>
-						<p>{quote}</p>
+						<p className='h3 fluid-font'>{quote}</p>
 					</blockquote>
 					{attribution?.source && (
 						<figcaption>
@@ -26,13 +26,16 @@ export const QuoteBlock = ({
 					)}
 				</figure>
 			</div>
-			<div
-				className={`w-full lg:w-[50%] my-12 md:my-24  ${layout === 'center' ? 'lg:my-24' : 'lg:my-0'}`}>
-				<ImageStack
-					layout={layout === 'left' ? 'right' : 'left'}
-					images={images}
-				/>
-			</div>
+			{images && (
+				<div
+					className={`w-full lg:w-[50%] my-12 md:my-24  ${layout === 'center' ? 'lg:my-24' : 'lg:my-0'}`}>
+					<ImageStack
+						layout={layout === 'left' ? 'right' : 'left'}
+						images={images}
+						withTilt={true}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -42,6 +45,6 @@ type QuoteBlockProps = {
 	attribution?: {
 		source: string;
 	};
-	images: ImageProps[];
+	images?: ImageProps[];
 	layout?: 'left' | 'center' | 'right';
 };

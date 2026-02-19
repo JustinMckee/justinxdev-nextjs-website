@@ -1,3 +1,5 @@
+'use client';
+import { useRef } from 'react';
 import HeroHeadlineGSAPTyping from '@/app/_components/HeroHeadlineGSAPTyping';
 import HeadlineGSAPFollowMouse from '@/app/_components/HeadlineGSAPFollowMouse';
 import WorkCategoriesGSAPSection from '@/app/_components/WorkCategoriesGSAPSection/WorkCategoriesGSAPSection';
@@ -6,46 +8,58 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 import { Slider, seedSliderData } from '../ui/Slider/Slider';
 import { SlideDeck } from '../ui/SlideDeck/SlideDeck';
+import { ImageStack } from '@/ui/common/ImageStack';
+import GridDistortion from '@/ui/features/backgrounds/GridDistortion';
 
 export default function Home() {
+	const trackingRef = useRef<HTMLElement>(null);
+
 	return (
 		<article className='flex flex-col w-full items-center justify-center'>
 			<section
+				ref={trackingRef}
 				id='hero'
-				className='max-w-9xl flex w-full flex-col lg:flex-row min-h-screen items-center'>
-				<div className='w-full lg:w-[50%]'>
-					<h1 className='text-3xl md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
-						<HeroHeadlineGSAPTyping />
-					</h1>
-					<p className='text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
-						A frontend engineer passionate about strategic UX and elevated UI
-					</p>
-				</div>
-				<div className='w-full lg:w-[50%]'>
-					<div className={`${styles['media-stack']}`}>
-						<div className={`${styles['media-top']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hero-top.webp'
-									alt='Hero image of Justin McKee'
-									width={3200}
-									height={1915}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-						<div className={`${styles['media-bottom']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hero-bottom.webp'
-									alt='Hero image of Justin McKee'
-									width={3200}
-									height={1973}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
+				className={styles.hero}>
+				<div className='relative z-10 max-w-9xl flex w-full flex-col lg:flex-row min-h-[66vh] items-center'>
+					<div className='w-full lg:w-[50%]'>
+						<h1 className='text-3xl md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
+							<HeroHeadlineGSAPTyping />
+						</h1>
+						<p className='text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
+							A frontend engineer passionate about strategic UX and elevated UI
+						</p>
 					</div>
+					<div className='w-full lg:w-[50%]'>
+						<ImageStack
+							withTilt={true}
+							layout='right'
+							images={[
+								{
+									src: '/hero-top.webp',
+									alt: 'Hero image of Justin McKee',
+									width: 3200,
+									height: 1915,
+								},
+								{
+									src: '/hero-bottom.webp',
+									alt: 'Hero image of Justin McKee',
+									width: 3200,
+									height: 1973,
+								},
+							]}
+						/>
+					</div>
+				</div>
+				<div className={styles.gridWrap}>
+					<GridDistortion
+						imageSrc='/backgrounds/relief-grid.jpg'
+						grid={20}
+						mouse={0.1}
+						strength={0.15}
+						relaxation={0.9}
+						className={styles.background}
+						mouseTrackingLayer={trackingRef}
+					/>
 				</div>
 			</section>
 			<section
