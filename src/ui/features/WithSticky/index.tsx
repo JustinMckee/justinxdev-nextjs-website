@@ -8,13 +8,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type WithTriggerProps = WithStickyProps & {
-	startOffset?: number;
-	endOffset?: number;
+	triggerStartOffset?: number;
+	triggerEndOffset?: number;
+	forStickyItem?: `#${string}`;
+	start?: string;
 };
 
 type WithStickyProps = {
 	children: ReactNode;
+	id?: string;
 };
+
+type StickyItemProps = WithStickyProps & {};
 
 /**
  * @name WithSticky
@@ -34,19 +39,24 @@ export const WithSticky = ({ children }: WithStickyProps) => {
  */
 export const StickyTrigger = ({
 	children,
-	startOffset = 0,
-	endOffset = 0,
+	triggerStartOffset = 0,
+	triggerEndOffset = 0,
+	forStickyItem,
+	start,
+	/*end*/
 }: WithTriggerProps) => {
 	const child = children as ReactElement<HTMLAttributes<HTMLElement>>;
-	console.log(startOffset);
 	// Check if the child is a DOM element
 	if (typeof child.type === 'string') {
 		// It's a DOM element - clone and add className
 		const existingClassName = child.props.className || '';
 		return cloneElement(child, {
 			className: `${existingClassName} ${styles.trigger}`.trim(),
-			'data-start-offset': startOffset,
-			'data-end-offset': endOffset,
+			'data-start-offset': triggerStartOffset,
+			'data-end-offset': triggerEndOffset,
+			...(forStickyItem && { 'data-trigger-for': forStickyItem }),
+			...(start && { 'data-start': start }),
+			// ...(end && { 'data-end': end }),
 		} as HTMLAttributes<HTMLElement>);
 	}
 
@@ -54,8 +64,10 @@ export const StickyTrigger = ({
 	return (
 		<div
 			className={styles.trigger}
-			data-start-offset={startOffset}
-			data-end-offset={endOffset}>
+			data-start-offset={triggerStartOffset}
+			data-end-offset={triggerEndOffset}
+			data-trigger-for={forStickyItem}
+			data-start={start ?? ''}>
 			{children}
 		</div>
 	);
@@ -65,7 +77,7 @@ export const StickyTrigger = ({
  * @name StickyItem
  * @description A wrapper component that defines the sticky element. Must be wrapped by a StickyTrigger.
  */
-export const StickyItem = ({ children }: WithStickyProps) => {
+export const StickyItem = ({ children, id = '' }: StickyItemProps) => {
 	const child = children as ReactElement<HTMLAttributes<HTMLElement>>;
 
 	// Check if the child is a DOM element
@@ -73,12 +85,20 @@ export const StickyItem = ({ children }: WithStickyProps) => {
 		// It's a DOM element - clone and add className
 		const existingClassName = child.props.className || '';
 		return cloneElement(child, {
+			...child.props,
+			id: id,
 			className: `${existingClassName} ${styles.item}`.trim(),
 		});
 	}
 
 	// It's a component or other - wrap it
-	return <div className={styles.item}>{children}</div>;
+	return (
+		<div
+			id={id}
+			className={styles.item}>
+			{children}
+		</div>
+	);
 };
 
 function addStickyItemTimelines() {
@@ -91,15 +111,28 @@ function addStickyItemTimelines() {
 	// let prevRange = 0;
 
 	stickyTriggers?.forEach((trigger, index) => {
-		const item = trigger.querySelector(`.${styles.item}`) as HTMLElement | null;
+		const forStickyItemId = trigger.getAttribute('data-trigger-for');
+		const start = trigger.getAttribute('data-start');
+		// @TODO const end = trigger.getAttribute('data-start');
+		const item = (
+			forStickyItemId
+				? stickyWrapper?.querySelector(forStickyItemId)
+				: trigger.querySelector(`.${styles.item}`)
+		) as HTMLElement | null;
 		if (!item) return;
+
+		if (index === 0) {
+			console.log(start, item);
+		}
 
 		const startOffset = parseFloat(
 			trigger.getAttribute('data-start-offset') || '0',
 		);
 
 		let startPosition: string;
-		if (startOffset === 0) {
+		if (start && !startOffset) {
+			startPosition = start;
+		} else if (startOffset === 0) {
 			startPosition = 'top center';
 		} else if (startOffset > 0) {
 			startPosition = `top center-=${Math.abs(startOffset)}%`;
@@ -108,11 +141,14 @@ function addStickyItemTimelines() {
 		}
 
 		const triggerHeight = (trigger as HTMLElement).offsetHeight;
-		const itemHeight = item.offsetHeight;
-		const itemYOffsetPx =
-			startOffset !== 0
-				? -(Math.abs(startOffset) / 100) * triggerHeight - itemHeight / 2
-				: 0;
+		// const itemHeight = item.offsetHeight;
+		// const itemYOffsetPx = -(window.innerHeight / 2 - itemHeight / 2);
+		const setCenteredY = () => {
+			const rect = item.getBoundingClientRect();
+			const targetTop = (window.innerHeight - rect.height) / 2;
+			const delta = targetTop - rect.top;
+			gsap.set(item, { y: delta });
+		};
 
 		const nextTrigger = triggers[index + 1];
 		const isLast = index === triggers.length - 1;
@@ -127,6 +163,10 @@ function addStickyItemTimelines() {
 				scrub: true,
 				pinSpacing: false,
 				markers: true,
+				onRefreshInit: () => gsap.set(item, { y: 0 }),
+				onRefresh: setCenteredY,
+				onEnter: setCenteredY,
+				onEnterBack: setCenteredY,
 			},
 		});
 
@@ -139,25 +179,24 @@ function addStickyItemTimelines() {
 			item,
 			{
 				opacity: 0,
-				y: itemYOffsetPx,
 				x: '100px',
 			},
 			{
 				opacity: 1,
-				y: itemYOffsetPx,
+				//y: stickyItemCenterY,
 				x: '0px',
 				duration: 0.2,
 				ease: 'power2.out',
 			},
 		)
 			.to(item, {
-				y: itemYOffsetPx,
+				//y: stickyItemCenterY,
 				duration: 0.6,
 				opacity: 1,
 			})
 			.to(item, {
 				opacity: 0,
-				y: itemYOffsetPx,
+				//y: stickyItemCenterY,
 				duration: 0.2,
 				ease: 'power2.in',
 			});

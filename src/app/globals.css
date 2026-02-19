@@ -10,6 +10,8 @@
 	--max-width-9xl: 96rem; /* 1536px */
 	--max-width-10xl: 112rem; /* 1792px */
 	--max-width-11xl: 128rem; /* 2048px */
+
+	--bg-pattern-color: color-mix(in oklab, var(--color-white) 15%, transparent);
 }
 
 :root {
@@ -100,5 +102,33 @@ body {
 	p.fluid-font,
 	.p.fluid-font {
 		font-size: clamp(var(--text-sm), 1.5vw, var(--text-base));
+	}
+	.bg-stipple {
+		background-image: radial-gradient(
+			var(--bg-pattern-color) 1px,
+			transparent 0
+		);
+		background-size: 7px 7px;
+	}
+	.bg-hatch {
+		background-image: repeating-linear-gradient(
+			314deg,
+			var(--bg-pattern-color),
+			var(--bg-pattern-color) 1px,
+			transparent 0,
+			transparent 7px
+		);
+	}
+	.bg-x {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="12" y="12" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.5)">×</text></svg>');
+		background-position: top left;
+		background-repeat: repeat;
+		background-size: 24px 24px;
+	}
+	.bg-arrow {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="12" y="12" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.5)">↖</text></svg>');
+		background-position: top left;
+		background-repeat: repeat;
+		background-size: 24px 24px;
 	}
 }

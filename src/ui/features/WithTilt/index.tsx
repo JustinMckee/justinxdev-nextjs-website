@@ -75,7 +75,7 @@ export const WithTilt = ({
 };
 
 type WithTiltProps = {
-	className: string;
+	className?: string;
 	children: ReactNode;
 	rotateAmplitude?: number;
 	scaleOnHover?: number;

@@ -32,6 +32,7 @@ export const QuoteBlock = ({
 					<ImageStack
 						layout={layout === 'left' ? 'right' : 'left'}
 						images={images}
+						withTilt={true}
 					/>
 				</div>
 			)}
