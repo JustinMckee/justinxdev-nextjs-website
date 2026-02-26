@@ -19,8 +19,8 @@ export default function HeadlineGSAPFollowMouse() {
 				const relativeY = cursorY / viewportHeight;
 				const relativeX = cursorX / viewportWidth;
 				gsap.to(textChunk, {
-					y: (relativeY - 0.5) * (25 * (index + 1)), // Slight vertical movement
-					x: (relativeX - 0.5) * (25 * (index + 1)), // Slight horizontal movement
+					y: (relativeY - 0.5) * (50 * (index + 1)), // Slight vertical movement
+					x: (relativeX - 0.5) * (50 * (index + 1)), // Slight horizontal movement
 					// y: (relativeY - 0.5) * 50, // Slight vertical movement
 					// x: (relativeX - 0.5) * 50, // Slight horizontal movement
 					// scale: 1 + relativeY * 0.2, // Scale based on cursor position
@@ -43,18 +43,23 @@ export default function HeadlineGSAPFollowMouse() {
 		};
 	}, []);
 	return (
-		<h2 className='gs-dynamic-heading md:text-6xl lg:text-7xl font-bold text-center mb-8 leading-tight'>
-			<span className='gs-dynamic-heading__text inline-block text-5xl leading-none'>
-				Build fast.
-			</span>
-			<br />
-			<span className='gs-dynamic-heading__text inline-block text-7xl leading-none'>
-				Scale smart.
-			</span>
-			<br />
-			<span className='gs-dynamic-heading__text inline-block text-9xl leading-none'>
-				Grow loud.
-			</span>
-		</h2>
+		<div className='gs-dynamic-heading'>
+			<h2 className='gs-dynamic-heading__text md:text-6xl lg:text-7xl font-bold text-center mb-8 leading-tight'>
+				<span className='gs-dynamic-heading__text inline-block text-5xl leading-none'>
+					Build fast.
+				</span>
+				<br />
+				<span className='gs-dynamic-heading__text inline-block text-7xl leading-none'>
+					Scale smart.
+				</span>
+				<br />
+				<span className='gs-dynamic-heading__text inline-block text-9xl leading-none'>
+					Grow loud.
+				</span>
+			</h2>
+			<p className='gs-dynamic-heading__text text-3xl text-center leading-none'>
+				Engineering that hustles as hard as your brand.
+			</p>
+		</div>
 	);
 }

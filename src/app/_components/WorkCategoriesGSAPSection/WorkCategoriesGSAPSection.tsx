@@ -15,9 +15,11 @@ export default function WorkCategoriesGSAPSection() {
 	return (
 		<section
 			id={`${styles['work-categories']}`}
-			className='max-w-9xl min-h-screen items-center gsap-pinned-section'>
+			className='relative w-full min-h-screen items-center gsap-pinned-section bg-[radial-gradient(circle_at_66%_50%,transparent_0%,rgba(0,0,0,1)_100% bg-[#0b0f2a] bg-no-repeat _100%)] bg-[radial-gradient(ellipse_at_20%_20%,rgba(0,255,255,0.55)_0%,transparent_55%),radial-gradient(ellipse_at_70%_30%,rgba(120,0,255,0.55)_0%,transparent_60%),radial-gradient(ellipse_at_85%_60%,rgba(0,120,255,0.55)_0%,transparent_60%),radial-gradient(ellipse_at_60%_70%,rgba(255,0,200,0.55)_0%,transparent_55%)] '>
+			<div className='pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%),linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_10%,transparent_40%,transparent_60%,rgba(0,0,0,1)_90%,rgba(0,0,0,1)_100%)]' />
+
 			<div
-				className={`${styles['col-1']} gsap-categories__data-binding__inputs`}>
+				className={`${styles['col-1']} gsap-categories__data-binding__inputs max-w-9xl mx-auto z-20`}>
 				<h2 className='text-2xl mb-8'>
 					Unify your brand + empower your data + accelerate your growth.
 				</h2>
@@ -145,6 +147,7 @@ export default function WorkCategoriesGSAPSection() {
 					<div className={`${styles['media-bottom']}`}></div>
 				</div>
 			</div>
+			<div></div>
 		</section>
 	);
 }
@@ -177,20 +180,20 @@ const setupPinnedAnimations = () => {
 	categories.forEach((category, index) => {
 		const singleCategoryTimeline = gsap.timeline();
 		const heading = category.querySelector(
-			`.${styles['gsap-category__heading']}`
+			`.${styles['gsap-category__heading']}`,
 		);
 		const headingModifier = category.querySelector(
-			`.${styles['gsap-heading-modifier']}`
+			`.${styles['gsap-heading-modifier']}`,
 		);
 		const paragraph = category.querySelector('.gsap-category__paragraph');
 		const paragraphHeight = paragraph?.clientHeight || 0;
 		const dataBindInput = heading?.getAttribute('data-bind-input');
 		const outputSection = document.querySelector(
-			`.gsap-categories__data-binding__outputs > div[data-bind-output='${dataBindInput}']`
+			`.gsap-categories__data-binding__outputs > div[data-bind-output='${dataBindInput}']`,
 		);
 		const topImage = outputSection?.querySelector(`.${styles['media-top']}`);
 		const bottomImage = outputSection?.querySelector(
-			`.${styles['media-bottom']}`
+			`.${styles['media-bottom']}`,
 		);
 
 		//gsap.set(outputSection, { opacity: 0 });
@@ -222,7 +225,7 @@ const setupPinnedAnimations = () => {
 					duration: 25,
 					ease: 'power4.inOut',
 				},
-				'<'
+				'<',
 			);
 
 		// Show corresponding output section
@@ -241,7 +244,7 @@ const setupPinnedAnimations = () => {
 						transform: 'translateY(20%)',
 						ease: 'none',
 						duration: 10,
-					}
+					},
 				)
 				.fromTo(
 					topImage,
@@ -252,7 +255,7 @@ const setupPinnedAnimations = () => {
 						transform: 'translateY(-20%)',
 						ease: 'none',
 						duration: 20,
-					}
+					},
 				)
 				.fromTo(
 					topImage,
@@ -264,7 +267,7 @@ const setupPinnedAnimations = () => {
 						// ease: 'power4.in',
 						ease: 'none',
 						duration: 10,
-					}
+					},
 				);
 			singleCategoryTimeline.add(topImageTimeline, '<');
 		}
@@ -279,7 +282,7 @@ const setupPinnedAnimations = () => {
 						transform: 'translateY(10%)',
 					},
 					{
-						opacity: 0.5,
+						opacity: 1,
 						duration: 6.19,
 						transform: 'translateY(5%)',
 						ease: 'none',
@@ -287,7 +290,7 @@ const setupPinnedAnimations = () => {
 						// 	'custom',
 						// 	'M0,0 C0,0.406 0.299,0.414 0.504,0.512 0.737,0.623 1,0.602 1,1.012 '
 						// ),
-					}
+					},
 				)
 				.fromTo(
 					bottomImage,
@@ -298,7 +301,7 @@ const setupPinnedAnimations = () => {
 						duration: 14.8,
 						transform: 'translateY(-5%)',
 						ease: 'none',
-					}
+					},
 				)
 				.fromTo(
 					bottomImage,
@@ -308,7 +311,7 @@ const setupPinnedAnimations = () => {
 						duration: 6,
 						transform: 'translateY(-10%)',
 						ease: 'none',
-					}
+					},
 				);
 			singleCategoryTimeline.add(bottomImageTimeline, '-=33');
 			// .to(

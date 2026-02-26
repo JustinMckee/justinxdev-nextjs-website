@@ -11,7 +11,12 @@
 	--max-width-10xl: 112rem; /* 1792px */
 	--max-width-11xl: 128rem; /* 2048px */
 
-	--bg-pattern-color: color-mix(in oklab, var(--color-white) 15%, transparent);
+	--bg-pattern-color-mix: color-mix(
+		in oklab,
+		var(--bg-pattern-color) 50%,
+		transparent
+	);
+	--bg-pattern-color: var(--color-white);
 }
 
 :root {
@@ -105,7 +110,7 @@ body {
 	}
 	.bg-stipple {
 		background-image: radial-gradient(
-			var(--bg-pattern-color) 1px,
+			var(--bg-pattern-color-mix) 1px,
 			transparent 0
 		);
 		background-size: 7px 7px;
@@ -113,8 +118,8 @@ body {
 	.bg-hatch {
 		background-image: repeating-linear-gradient(
 			314deg,
-			var(--bg-pattern-color),
-			var(--bg-pattern-color) 1px,
+			var(--bg-pattern-color-mix),
+			var(--bg-pattern-color-mix) 1px,
 			transparent 0,
 			transparent 7px
 		);

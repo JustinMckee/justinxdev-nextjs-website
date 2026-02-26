@@ -8,15 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@devicon/react':
+        specifier: ^0.0.3
+        version: 0.0.3
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.13.0)(react@19.2.0)
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@4.1.16)
-      devicons:
-        specifier: ^1.8.0
-        version: 1.8.0
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -145,6 +145,9 @@ packages:
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
+
+  '@devicon/react@0.0.3':
+    resolution: {integrity: sha512-r8Td7z0hyC8Y1PSgZs9NBGDcEosmFjSLWlhbez/8nOR+5HNXFpaFryc7OkKk6F2J+WXEpyxKx81CjXcCW3qO7A==}
 
   '@dimforge/rapier3d-compat@0.12.0':
     resolution: {integrity: sha512-uekIGetywIgopfD97oDL5PfeezkFpNhwlzlaEYNOA0N6ghdsOvh/HYjSMek5Q2O1PYvRSDFcqFVJl4r4ZBwOow==}
@@ -1015,10 +1018,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  devicons@1.8.0:
-    resolution: {integrity: sha512-tRS3bNxy9mbDVK0g4/+t5PlwMjjOteuh5LAhjMgimAPUgiKB+wCUCf7+uugufZ1vC9AKMRn5Pljbi210qCbmkQ==}
-    engines: {node: '>=0.10.3'}
 
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
@@ -2238,6 +2237,8 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
+  '@devicon/react@0.0.3': {}
+
   '@dimforge/rapier3d-compat@0.12.0': {}
 
   '@emnapi/core@1.7.0':
@@ -3039,8 +3040,6 @@ snapshots:
     optional: true
 
   detect-libc@2.1.2: {}
-
-  devicons@1.8.0: {}
 
   doctrine@2.1.0:
     dependencies:

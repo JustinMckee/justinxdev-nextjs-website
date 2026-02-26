@@ -1,4 +1,3 @@
-'use client';
 import { useRef } from 'react';
 import HeroHeadlineGSAPTyping from '@/app/_components/HeroHeadlineGSAPTyping';
 import HeadlineGSAPFollowMouse from '@/app/_components/HeadlineGSAPFollowMouse';
@@ -6,18 +5,14 @@ import WorkCategoriesGSAPSection from '@/app/_components/WorkCategoriesGSAPSecti
 import LogoGrid from '@/app/_components/LogoGrid';
 import Image from 'next/image';
 import styles from './page.module.scss';
-import { Slider, seedSliderData } from '../ui/Slider/Slider';
-import { SlideDeck } from '../ui/SlideDeck/SlideDeck';
+import { SlideDeck } from '../../ui/SlideDeck/SlideDeck';
 import { ImageStack } from '@/ui/common/ImageStack';
-import GridDistortion from '@/ui/features/backgrounds/GridDistortion';
+import { MottoTaglineSection } from '../_components/MottoTaglineSection/MottoTaglineSection';
 
 export default function Home() {
-	const trackingRef = useRef<HTMLElement>(null);
-
 	return (
 		<article className='flex flex-col w-full items-center justify-center'>
 			<section
-				ref={trackingRef}
 				id='hero'
 				className={styles.hero}>
 				<div className='relative z-10 max-w-9xl flex w-full flex-col lg:flex-row min-h-[66vh] items-center'>
@@ -26,7 +21,8 @@ export default function Home() {
 							<HeroHeadlineGSAPTyping />
 						</h1>
 						<p className='text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
-							A frontend engineer passionate about strategic UX and elevated UI
+							A frontend engineer passionate about strategic UX and high-impact
+							UI that actually move the needle.
 						</p>
 					</div>
 					<div className='w-full lg:w-[50%]'>
@@ -50,46 +46,19 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-				<div className={styles.gridWrap}>
-					<GridDistortion
-						imageSrc='/backgrounds/relief-grid.jpg'
-						grid={20}
-						mouse={0.1}
-						strength={0.15}
-						relaxation={0.9}
-						className={styles.background}
-						mouseTrackingLayer={trackingRef}
-					/>
-				</div>
 			</section>
 			<section
 				id='about'
-				className='max-w-9xl w-full flex-col mb-25 py-35'>
+				className='max-w-9xl w-full flex-col mb-25 pb-35 z-[5]'>
 				<div className='w-full max-w-5xl mx-auto'>
 					<p className='text-3xl text-center'>
-						I develop component systems, web applications, and websites using a
-						modern tech stack.
+						I grow brands by helping teams use the latest tech stacks to build
+						design systems, component libraries, dashboards, and websites
 					</p>
 					<LogoGrid />
 				</div>
 			</section>
-			<section
-				id='collage'
-				className='w-full flex-col py-35'>
-				<div className='w-full max-w-5xl mx-auto mb-25'>
-					<HeadlineGSAPFollowMouse />
-					<p className='text-3xl text-center'>
-						Engineering that hustles as hard as your brand.
-					</p>
-				</div>
-				<Image
-					src='/collage.webp'
-					alt='Work collage'
-					width={2880}
-					height={1940}
-					className='w-full h-auto'
-				/>
-			</section>
+			<MottoTaglineSection />
 			<WorkCategoriesGSAPSection />
 			<section
 				id='project-stack'

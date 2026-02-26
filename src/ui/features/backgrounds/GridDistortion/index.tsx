@@ -153,7 +153,19 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			renderer.setSize(width, height);
 
 			if (plane) {
-				plane.scale.set(containerAspect, 1, 1);
+				const imageAspect = imageAspectRef.current || 1;
+				const frustumHeight = 1;
+				const frustumWidth = frustumHeight * containerAspect;
+
+				let planeWidth = frustumWidth;
+				let planeHeight = frustumWidth / imageAspect;
+
+				if (planeHeight < frustumHeight) {
+					planeHeight = frustumHeight;
+					planeWidth = frustumHeight * imageAspect;
+				}
+
+				plane.scale.set(planeWidth, planeHeight, 1);
 			}
 
 			const frustumHeight = 1;
@@ -187,12 +199,20 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 		};
 
 		const handleMouseMove = (e: MouseEvent) => {
-			const rect = trackingContainer.getBoundingClientRect();
-			const x = (e.clientX - rect.left) / rect.width;
-			const y = 1 - (e.clientY - rect.top) / rect.height;
-			mouseState.vX = x - mouseState.prevX;
-			mouseState.vY = y - mouseState.prevY;
-			Object.assign(mouseState, { x, y, prevX: x, prevY: y });
+			const width = window.innerWidth || 1;
+			const height = window.innerHeight || 1;
+			const x = e.clientX / width;
+			const y = 1 - e.clientY / height;
+			const clampedX = Math.min(Math.max(x, 0), 1);
+			const clampedY = Math.min(Math.max(y, 0), 1);
+			mouseState.vX = clampedX - mouseState.prevX;
+			mouseState.vY = clampedY - mouseState.prevY;
+			Object.assign(mouseState, {
+				x: clampedX,
+				y: clampedY,
+				prevX: clampedX,
+				prevY: clampedY,
+			});
 		};
 
 		const handleMouseLeave = () => {
@@ -209,8 +229,8 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			});
 		};
 
-		trackingContainer.addEventListener('mousemove', handleMouseMove);
-		trackingContainer.addEventListener('mouseleave', handleMouseLeave);
+		window.addEventListener('mousemove', handleMouseMove);
+		window.addEventListener('mouseleave', handleMouseLeave);
 
 		handleResize();
 
@@ -265,8 +285,8 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 				window.removeEventListener('resize', handleResize);
 			}
 
-			trackingContainer.removeEventListener('mousemove', handleMouseMove);
-			trackingContainer.removeEventListener('mouseleave', handleMouseLeave);
+			window.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('mouseleave', handleMouseLeave);
 
 			if (renderer) {
 				renderer.dispose();
