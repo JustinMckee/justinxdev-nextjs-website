@@ -9,9 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@devicon/react": "^0.0.3",
     "@gsap/react": "^2.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "devicons": "^1.8.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.563.0",
     "motion": "^12.34.0",

@@ -19,8 +19,8 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${archivoNarrow.variable} antialiased`}>
 				<Header />
-				<div className='flex min-h-screen items-top justify-center bg-zinc-50 font-sans dark:bg-black'>
-					<main className='flex w-full flex-col items-center justify-between px-6 bg-white dark:bg-black overflow-hidden'>
+				<div className='flex min-h-screen items-top justify-center font-sans '>
+					<main className='flex w-full flex-col items-center justify-between overflow-hidden'>
 						{children}
 					</main>
 				</div>
