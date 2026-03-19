@@ -4,7 +4,7 @@ import styles from './Slider.module.scss';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { RefObject, UIEvent, useRef } from 'react';
-import { debounce } from '@/app/lib/utils';
+import { debounce } from '@/lib/utils';
 
 gsap.registerPlugin(useGSAP);
 
@@ -21,7 +21,7 @@ export const Slider = (props: Props) => {
 			onScroll={(e: UIEvent) => {
 				animateScrollVelocity(
 					e.currentTarget.scrollLeft,
-					lastScrollPositionRef
+					lastScrollPositionRef,
 				);
 			}}>
 			<div className='max-w-9xl w-full self-center flex'>
@@ -68,7 +68,7 @@ const setupScrollVelocityAnimation = (delta: number | string) => {
 				transform: `perspective(2000px) rotateY(${delta}deg)`,
 				duration: 0.5,
 				ease: 'sine.out',
-			}
+			},
 		);
 		masterTimeline.add(slideTimeline, 0);
 	});
@@ -77,7 +77,7 @@ const setupScrollVelocityAnimation = (delta: number | string) => {
 
 const getScrollVelocityDelta = (
 	scrollDistance: number,
-	lastPositionRef: RefObject<number>
+	lastPositionRef: RefObject<number>,
 ): number | string => {
 	const scrollDelta = scrollDistance - lastPositionRef.current;
 	let direction = '';
@@ -96,11 +96,11 @@ const getScrollVelocityDelta = (
 const animateScrollVelocity = debounce(
 	(scrollDistance: number, lastPositionRef: RefObject<number>) => {
 		setupScrollVelocityAnimation(
-			getScrollVelocityDelta(scrollDistance, lastPositionRef)
+			getScrollVelocityDelta(scrollDistance, lastPositionRef),
 		);
 	},
 	100,
-	true // Enable leading edge execution
+	true, // Enable leading edge execution
 );
 
 const restrictRotation = (delta: number, maxDegrees: number): number => {
