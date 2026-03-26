@@ -2,11 +2,17 @@ import Image, { ImageProps } from 'next/image';
 import styles from './index.module.scss';
 import { WithTilt } from '@/ui/features/WithTilt';
 
-const ImageWrapper = ({ image, idx, withTilt }: ImageWrapperProps) => {
+const ImageWrapper = ({
+	image,
+	idx,
+	withTilt,
+	className,
+}: ImageWrapperProps) => {
 	return (
 		<>
 			{withTilt && (
-				<WithTilt className={`${styles[`media-${idx ? 'bottom' : 'top'}`]}`}>
+				<WithTilt
+					className={`${styles[`media-${idx ? 'bottom' : 'top'}`]} ${className}`}>
 					<div className={`${styles['media-wrapper']}`}>
 						<Image
 							{...image}
@@ -17,7 +23,8 @@ const ImageWrapper = ({ image, idx, withTilt }: ImageWrapperProps) => {
 				</WithTilt>
 			)}
 			{!withTilt && (
-				<div className={`${styles[`media-${idx ? 'bottom' : 'top'}`]}`}>
+				<div
+					className={`${styles[`media-${idx ? 'bottom' : 'top'}`]} ${className}`}>
 					<div className={`${styles['media-wrapper']}`}>
 						<Image
 							{...image}
@@ -35,6 +42,7 @@ export const ImageStack = ({
 	layout = 'left',
 	images,
 	withTilt = false,
+	className = '',
 }: ImageStackProps) => (
 	<div className={`${styles['media-stack']} ${styles[layout]}`}>
 		{images.slice(0, 2).map((image, idx) => {
@@ -44,6 +52,7 @@ export const ImageStack = ({
 					image={image}
 					idx={idx}
 					withTilt={withTilt}
+					className={className}
 				/>
 			);
 		})}
@@ -54,10 +63,12 @@ type ImageStackProps = {
 	layout?: 'left' | 'right';
 	images: ImageProps[];
 	withTilt?: boolean;
+	className?: string;
 };
 
 type ImageWrapperProps = {
 	image: ImageProps;
 	idx: number;
 	withTilt: boolean;
+	className?: string;
 };

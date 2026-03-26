@@ -13,7 +13,7 @@
 
 	--bg-pattern-color-mix: color-mix(
 		in oklab,
-		var(--bg-pattern-color) 50%,
+		var(--bg-pattern-color) 20%,
 		transparent
 	);
 	--bg-pattern-color: var(--color-white);
@@ -135,5 +135,70 @@ body {
 		background-position: top left;
 		background-repeat: repeat;
 		background-size: 24px 24px;
+	}
+	.site-grid {
+		display: grid;
+		grid-template-columns: 50px minmax(0, var(--max-width-9xl)) 50px;
+		min-height: 100vh;
+		justify-content: center;
+		align-items: stretch;
+	}
+	.site-gutter-left {
+		grid-column: 1;
+		box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
+		position: relative;
+		z-index: 1;
+	}
+	.site-content {
+		grid-column: 2;
+		min-width: 0;
+	}
+	.site-gutter-right {
+		grid-column: 3;
+		//border: 1px solid hsla(0, 0%, 100%, 0.15);
+		position: relative;
+		z-index: 1;
+	}
+	.full-bleed {
+		width: 100vw;
+		margin-left: calc(50% - 50vw);
+	}
+	.full-bleed-bg::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		background-color: var(--background);
+		z-index: -1;
+		margin-left: calc(50% - 50vw);
+	}
+	.full-bleed-bg {
+		position: relative;
+		z-index: 0;
+	}
+	.guide-lines {
+		position: relative;
+	}
+	.guide-lines > * {
+		position: relative;
+		z-index: 20;
+	}
+	.guide-lines::before,
+	.guide-lines::after {
+		z-index: auto;
+		content: '';
+		height: 0;
+		border: 1px solid hsla(0, 0%, 100%, 0.15);
+		position: absolute;
+		left: -100vw;
+		right: -100vw;
+	}
+	.guide-lines::before {
+		top: -2px;
+	}
+	.guide-lines::after {
+		bottom: -2px;
 	}
 }

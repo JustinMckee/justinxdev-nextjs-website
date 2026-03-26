@@ -45,19 +45,19 @@ export default function HeadlineGSAPFollowMouse() {
 	return (
 		<div className='gs-dynamic-heading'>
 			<h2 className='gs-dynamic-heading__text md:text-6xl lg:text-7xl font-bold text-center mb-8 leading-tight'>
-				<span className='gs-dynamic-heading__text inline-block text-5xl leading-none'>
+				<span className='guide-lines gs-dynamic-heading__text inline-block text-5xl leading-none'>
 					Build fast.
 				</span>
 				<br />
-				<span className='gs-dynamic-heading__text inline-block text-7xl leading-none'>
+				<span className='guide-lines gs-dynamic-heading__text inline-block text-7xl leading-none'>
 					Scale smart.
 				</span>
 				<br />
-				<span className='gs-dynamic-heading__text inline-block text-9xl leading-none'>
+				<span className='guide-lines gs-dynamic-heading__text inline-block text-9xl leading-none'>
 					Grow loud.
 				</span>
 			</h2>
-			<p className='gs-dynamic-heading__text text-3xl text-center leading-none'>
+			<p className='guide-lines gs-dynamic-heading__text text-3xl text-center leading-none'>
 				Engineering that hustles as hard as your brand.
 			</p>
 		</div>

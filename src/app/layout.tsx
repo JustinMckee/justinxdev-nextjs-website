@@ -19,11 +19,11 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${archivoNarrow.variable} antialiased`}>
 				<Header />
-				<div className='flex min-h-screen items-top justify-center font-sans '>
-					<main className='flex w-full flex-col items-center justify-between overflow-hidden'>
-						{children}
-					</main>
-				</div>
+				<main className='site-grid font-sans overflow-hidden'>
+					<div className='site-gutter-left bg-hatch'></div>
+					<div className='site-content'>{children}</div>
+					<div className='site-gutter-right bg-hatch'></div>
+				</main>
 			</body>
 		</html>
 	);

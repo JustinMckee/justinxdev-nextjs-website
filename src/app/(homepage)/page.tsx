@@ -17,10 +17,10 @@ export default function Home() {
 				className={styles.hero}>
 				<div className='relative z-10 max-w-9xl flex w-full flex-col lg:flex-row min-h-[66vh] items-center'>
 					<div className='w-full lg:w-[50%]'>
-						<h1 className='text-3xl md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
+						<h1 className='guide-lines text-3xl md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
 							<HeroHeadlineGSAPTyping />
 						</h1>
-						<p className='text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
+						<p className='guide-lines text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
 							A frontend engineer passionate about strategic UX and high-impact
 							UI that actually move the needle.
 						</p>
@@ -51,9 +51,9 @@ export default function Home() {
 				id='about'
 				className='max-w-9xl w-full flex-col mb-25 pb-35 z-[5]'>
 				<div className='w-full max-w-5xl mx-auto'>
-					<p className='text-3xl text-center'>
-						I grow brands by helping teams use the latest tech stacks to build
-						design systems, component libraries, dashboards, and websites
+					<p className='guide-lines text-3xl text-center'>
+						I leverage the latest tech stacks to build immersive experiences,
+						design systems, dashboards, and websites
 					</p>
 					<LogoGrid />
 				</div>

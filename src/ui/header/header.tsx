@@ -15,7 +15,7 @@ export const Header = () => {
 						dev
 					</a>
 				</div>
-				<div className='hidden md:block col-span-5 col-start-6'>
+				{/* <div className='hidden md:block col-span-5 col-start-6'>
 					<div className='ml-10 flex items-baseline space-x-4'>
 						<a
 							href='#about'
@@ -43,7 +43,7 @@ export const Header = () => {
 							Contact
 						</a>
 					</div>
-				</div>
+				</div> */}
 				<div className='col-span-3 col-start-14 flex justify-end'>
 					<a
 						href='linkedin.com/in/justin-mckee'
@@ -51,7 +51,7 @@ export const Header = () => {
 						LinkedIn
 					</a>
 					<a
-						href='github.com/justinxdev'
+						href='https://github.com/justinmckee'
 						className='text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
 						GitHub
 					</a>

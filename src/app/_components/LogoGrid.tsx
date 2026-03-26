@@ -182,7 +182,7 @@ export default function LogoGrid() {
 	});
 
 	return (
-		<div className='flex flex-wrap justify-center items-center my-8'>
+		<div className='guide-lines flex flex-wrap justify-center items-center my-8'>
 			{activeItemsState.map((logo, index) => (
 				<div
 					key={`logo-slot-${index}`}
@@ -191,7 +191,7 @@ export default function LogoGrid() {
 						ref={(el) => {
 							logoSlotRefs.current[index] = el;
 						}}
-						className={`relative w-full h-full m-4 flex justify-center items-center flex-col gap-2 overflow-hidden`}>
+						className={`relative w-full h-full flex justify-center items-center flex-col gap-2 overflow-hidden`}>
 						<div
 							ref={(el) => {
 								hatchRefs.current[index] = el;
