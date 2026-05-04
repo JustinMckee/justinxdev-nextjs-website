@@ -24,8 +24,8 @@ export default function Home() {
 							<HeroHeadlineGSAPTyping />
 						</h1>
 						<p className='bg-stipple text-xl guide-lines md:text-3xl lg:text-[2vw] xl:text-4xl p-[0.5rem]'>
-							A frontend engineer passionate about strategic UX and high-impact
-							UI that actually moves the needle.
+							A technical product manager and frontend engineer passionate about
+							strategic UX and high-impact UI that actually moves the needle.
 						</p>
 					</div>
 					<div className='w-full lg:w-[50%] pt-12 pb-24'>
@@ -55,8 +55,9 @@ export default function Home() {
 				className='site-section max-w-9xl w-full flex-col pb-10 xl:pb-35 z-[5]'>
 				<div className='w-full max-w-5xl mx-auto'>
 					<p className=' text-lg md:text-xl xl:text-3xl text-center p-[0.5rem]'>
-						I craft immersive user experiences, dashboards, websites, and more.
-						<br />I do it using modern tech stacks.
+						I craft immersive user experiences, dashboards, eCommerce
+						storefronts, and more.
+						<br />I do it with a modern tech stack.
 					</p>
 					<LogoGrid />
 				</div>

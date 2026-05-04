@@ -8,13 +8,15 @@ export const Header = () => {
 				<div className='col-span-4 col-start-1'>
 					<Link
 						href='/'
-						className={`font-bold text-xl ${styles.logoGradient}`}>
-						justin
-						<span
-							className={`relative top-1 text-[1.3em] px-[0.5px] ${styles.logoDivider}`}>
-							&times;
+						className='font-bold text-xl leading-none flex flex-col items-start md:flex-row md:items-center'>
+						<span className={styles.logoGradient}>justin</span>
+						<span className='flex items-baseline md:items-center relative top-[-0.33em] md:top-0'>
+							<span
+								className={`relative top-1 md:top-[0.1rem] text-[1.3em] px-[0.5px] ${styles.logoDivider}`}>
+								&times;
+							</span>
+							<span className={styles.logoGradient}>dev</span>
 						</span>
-						dev
 					</Link>
 				</div>
 				{/* <div className='hidden md:block col-span-5 col-start-6'>
@@ -46,22 +48,22 @@ export const Header = () => {
 						</a>
 					</div>
 				</div> */}
-				<div className='col-start-12 col-end-17 flex justify-end'>
+				<div className='col-start-5 col-end-17 flex justify-end'>
 					<Link
 						href='https://linkedin.com/in/justin-mckee'
 						target='_blank'
-						className={`px-3 py-2 rounded-md text-md font-medium ${styles.linkGradient}`}>
+						className={`px-3 py-2 rounded-md text-sm md:text-md font-medium ${styles.linkGradient}`}>
 						LinkedIn
 					</Link>
 					<Link
 						href='https://github.com/justinmckee'
 						target='_blank'
-						className={`px-3 py-2 rounded-md text-md font-medium ${styles.linkGradient}`}>
+						className={`px-3 py-2 rounded-md text-sm md:text-md font-medium ${styles.linkGradient}`}>
 						GitHub
 					</Link>
 					<Link
 						href='#contact'
-						className={`bg-hatch px-4 py-2 rounded-md text-md font-medium ml-4 ${styles.ctaButton}`}>
+						className={`bg-hatch px-2 md:px-4 py-2 rounded-md text-sm md:text-md font-medium ml-4 ${styles.ctaButton}`}>
 						<span className={styles.ctaText}>Get in Touch</span>
 					</Link>
 				</div>

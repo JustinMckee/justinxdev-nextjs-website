@@ -4,6 +4,12 @@ import { useEffect } from 'react';
 
 export default function HeadlineGSAPFollowMouse() {
 	useEffect(() => {
+		const canTrackCursor = window.matchMedia(
+			'(hover: hover) and (pointer: fine)',
+		).matches;
+		if (!canTrackCursor) {
+			return;
+		}
 		/*
 		 * Dynamic heading mousemove effect
 		 */

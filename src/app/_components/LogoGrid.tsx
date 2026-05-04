@@ -186,12 +186,12 @@ export default function LogoGrid() {
 			{activeItemsState.map((logo, index) => (
 				<div
 					key={`logo-slot-${index}`}
-					className='flex-none basis-1/3 xl:basis-1/5 aspect-square'>
+					className='flex-none basis-1/3 md:basis-1/5 aspect-square'>
 					<div
 						ref={(el) => {
 							logoSlotRefs.current[index] = el;
 						}}
-						className={`relative w-full h-full flex justify-center items-center flex-col gap-2 overflow-hidden`}>
+						className={`relative w-full h-full flex justify-center items-center flex-col gap-2 overflow-hidden p-2`}>
 						<div
 							ref={(el) => {
 								hatchRefs.current[index] = el;
@@ -208,10 +208,13 @@ export default function LogoGrid() {
 							}
 							className='pointer-events-none absolute inset-0 bg-hatch opacity-0'
 						/>
-						<div className='text-7xl'>
-							<logo.devicon color={logo.color} />
+						<div className='flex flex-col grow w-full items-center justify-center pt-2'>
+							<logo.devicon
+								color={logo.color}
+								className='grow !w-full sm:max-w-[50%]'
+							/>
 						</div>
-						<span className='text-[clamp(0.8rem,1vw,1.2rem)] xl:pt-2 text-center opacity-70'>
+						<span className='text-[clamp(0.8rem,1vw,1.2rem)] pb-2 text-center opacity-70'>
 							{logo.name}
 						</span>
 					</div>

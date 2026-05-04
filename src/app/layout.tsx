@@ -56,7 +56,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} ${archivoNarrow.variable} antialiased relative overflow-x-hidden`}>
 				<Header />
-				<main className='site-grid font-sans'>
+				<main className='site-grid font-sans overflow-hidden'>
 					<div className='site-gutter-left bg-hatch'></div>
 					{children}
 					<Footer />

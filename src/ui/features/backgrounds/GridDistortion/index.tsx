@@ -60,6 +60,9 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 
 		const container = containerRef.current;
 		const trackingContainer = mouseTrackingLayer?.current ?? container;
+		const canTrackCursor = window.matchMedia(
+			'(hover: hover) and (pointer: fine)',
+		).matches;
 
 		const scene = new THREE.Scene();
 		sceneRef.current = scene;
@@ -229,8 +232,10 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			});
 		};
 
-		window.addEventListener('mousemove', handleMouseMove);
-		window.addEventListener('mouseleave', handleMouseLeave);
+		if (canTrackCursor) {
+			trackingContainer.addEventListener('mousemove', handleMouseMove);
+			trackingContainer.addEventListener('mouseleave', handleMouseLeave);
+		}
 
 		handleResize();
 
@@ -285,8 +290,10 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 				window.removeEventListener('resize', handleResize);
 			}
 
-			window.removeEventListener('mousemove', handleMouseMove);
-			window.removeEventListener('mouseleave', handleMouseLeave);
+			if (canTrackCursor) {
+				trackingContainer.removeEventListener('mousemove', handleMouseMove);
+				trackingContainer.removeEventListener('mouseleave', handleMouseLeave);
+			}
 
 			if (renderer) {
 				renderer.dispose();

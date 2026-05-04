@@ -69,7 +69,24 @@ export const Footer = () => {
 
 	const showError = (field: keyof typeof touched) =>
 		touched[field] && Boolean(errors[field]);
+	// <p>
+	// 	From new builds to evolving existing systems, I design and deliver scalable
+	// 	frontends, intuitive workflows, and search-ready foundations - fast for
+	// 	users, easy for teams to build on, and positioned to grow.
+	// </p>;
 
+	// <p>
+	// 							From new builds to evolving existing systems and products, I
+	// 							offer consulting for technical product strategy and UX direction - architecture engagements that define scalable patterns
+	// 							and systems for delivering high-quality products that help businesses grow.</p>
+	// 						<p>When you need execution, I step in as a contracted
+	// 							builder to ship frontends, workflows, and search-optimized
+	// 							foundations.
+	// 						</p>
+	// 						<p>
+	// 							In both roles, I focus on creating solutions that are fast for
+	// 							users, easy for teams to build on, and positioned to grow.
+	// 						</p>
 	return (
 		<>
 			<section className='w-full full-bleed-bg relative site-section py-24'>
@@ -80,11 +97,20 @@ export const Footer = () => {
 								Solutions that scale with your business.
 							</h2>
 							<p>
-								From new builds to evolving existing systems, I design and
-								deliver scalable frontends, intuitive workflows, and
-								search-ready foundations - fast for users, easy for teams to
-								build on, and positioned to grow.
+								I consult on technical product strategy and UX direction, and
+								lead architecture engagements that transform complexity into
+								scalable products - helping businesses grow.
 							</p>
+							<p>
+								If you need hands-on delivery, I contract as a builder to ship
+								frontends, workflows, and search-optimized foundations that
+								improve a business's digital footprint.
+							</p>
+							<p>
+								Across both, I focus on creating fast experiences, maintainable
+								code, and room to scale.
+							</p>
+							<p>I'm open to new opportunities and collaborations.</p>
 						</div>
 						<div>
 							{state.ok ? (
@@ -218,8 +244,10 @@ export const Footer = () => {
 				</div>
 			</section>
 			<footer
-				className={`${styles.footer} ${styles.footerNoBleed} w-full py-20 text-center text-white text-sm site-section full-bleed-bg`}>
-				&copy; {new Date().getFullYear()} Justin McKee. All rights reserved.
+				className={`${styles.footer} w-full full-bleed-bg py-20 site-section`}>
+				<div className='site-section-content text-center text-white text-sm'>
+					&copy; {new Date().getFullYear()} Justin McKee. All rights reserved.
+				</div>
 			</footer>
 		</>
 	);
