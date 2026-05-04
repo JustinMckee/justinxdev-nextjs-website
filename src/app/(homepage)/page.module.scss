@@ -57,3 +57,153 @@
 	width: 100vw;
 	height: 100vh;
 }
+
+.font-gradient {
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent; // Fallback for non-webkit browsers
+	display: inline-block; // Important: inline elements don't always show background properly
+	:global(.gs-cursor) {
+		color: #00dfd8; // Use an actual color value
+		-webkit-text-fill-color: #00dfd8;
+		background: none;
+		background-clip: border-box;
+		-webkit-background-clip: border-box;
+	}
+}
+
+.ctaButton {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	border-radius: 0.75rem;
+	border: 3px solid transparent;
+	color: #ffffff;
+	text-decoration: none;
+	transition:
+		color 160ms ease,
+		transform 120ms ease;
+}
+
+.ctaButton::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	padding: 3px;
+	border-radius: inherit;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 124, 240, 0.45) 0%,
+		rgba(0, 223, 216, 0.45) 100%
+	);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	pointer-events: none;
+	transition: background 180ms ease;
+}
+
+.ctaButton:hover::before {
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+}
+
+.ctaText {
+	display: inline-block;
+	font-weight: 700;
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+	background-clip: text !important;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+	transition: background 180ms ease;
+}
+
+.ctaArrow {
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 124, 240, 0.6) 0%,
+		rgba(0, 223, 216, 0.6) 100%
+	);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M5 11h12l-5-5 1.4-1.4L21.8 12l-8.4 8.4L12 19l5-5H5z'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	-webkit-mask-size: contain;
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M5 11h12l-5-5 1.4-1.4L21.8 12l-8.4 8.4L12 19l5-5H5z'/%3E%3C/svg%3E");
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+	transition:
+		transform 180ms ease,
+		background 180ms ease;
+}
+
+.ctaX {
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.7L12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	-webkit-mask-size: contain;
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.7L12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3z'/%3E%3C/svg%3E");
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+}
+
+.ctaButton:hover .ctaText,
+.ctaButton:focus-visible .ctaText {
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+}
+
+.ctaButton:hover .ctaArrow,
+.ctaButton:focus-visible .ctaArrow {
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+	transform: translateX(6px);
+}
+
+.ctaButton:active .ctaArrow {
+	background: linear-gradient(90deg, #0067d6 0%, #00bfb8 100%);
+	transform: translateX(3px);
+}
+
+.ctaButton:focus-visible {
+	outline: 2px solid #00dfd8;
+	outline-offset: 3px;
+}
+
+.ctaButton:active {
+	transform: translateY(1px);
+}
+
+.ctaButton:active::before {
+	background: linear-gradient(90deg, #0067d6 0%, #00bfb8 100%);
+}
+
+.ctaButtonDisabled {
+	cursor: not-allowed !important;
+	opacity: 0.6;
+	// pointer-events: none;
+}
+
+.ctaButtonDisabled:hover::before {
+	background: linear-gradient(
+		90deg,
+		rgba(0, 124, 240, 0.45) 0%,
+		rgba(0, 223, 216, 0.45) 100%
+	);
+}
+
+.ctaButtonDisabled:hover .ctaArrow {
+	transform: none;
+}

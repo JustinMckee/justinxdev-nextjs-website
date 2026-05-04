@@ -8,24 +8,27 @@ import styles from './page.module.scss';
 import { SlideDeck } from '../../ui/SlideDeck/SlideDeck';
 import { ImageStack } from '@/ui/common/ImageStack';
 import { MottoTaglineSection } from '../_components/MottoTaglineSection/MottoTaglineSection';
+import Link from 'next/link';
+import { X, XIcon } from 'lucide-react';
 
 export default function Home() {
 	return (
-		<article className='flex flex-col w-full items-center justify-center'>
+		<>
+			{/* <article className='flex flex-col w-full items-center justify-center'> */}
 			<section
 				id='hero'
-				className={styles.hero}>
-				<div className='relative z-10 max-w-9xl flex w-full flex-col lg:flex-row min-h-[66vh] items-center'>
-					<div className='w-full lg:w-[50%]'>
-						<h1 className='guide-lines text-3xl md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
+				className={`${styles.hero} site-section`}>
+				<div className='relative py-4 pt-24 z-10 max-w-9xl flex w-full flex-col lg:flex-row min-h-[66vh] items-center'>
+					<div className='w-full lg:w-[50%] pt-24 flex flex-col justify-center'>
+						<h1 className='text-[8vw] md:text-[7vw] font-bold leading-tight lg:text-[4vw] xl:text-6xl mb-4'>
 							<HeroHeadlineGSAPTyping />
 						</h1>
-						<p className='guide-lines text-xl md:text-3xl lg:text-[2vw] xl:text-4xl'>
+						<p className='bg-stipple text-xl guide-lines md:text-3xl lg:text-[2vw] xl:text-4xl p-[0.5rem]'>
 							A frontend engineer passionate about strategic UX and high-impact
-							UI that actually move the needle.
+							UI that actually moves the needle.
 						</p>
 					</div>
-					<div className='w-full lg:w-[50%]'>
+					<div className='w-full lg:w-[50%] pt-12 pb-24'>
 						<ImageStack
 							withTilt={true}
 							layout='right'
@@ -49,18 +52,73 @@ export default function Home() {
 			</section>
 			<section
 				id='about'
-				className='max-w-9xl w-full flex-col mb-25 pb-35 z-[5]'>
+				className='site-section max-w-9xl w-full flex-col pb-10 xl:pb-35 z-[5]'>
 				<div className='w-full max-w-5xl mx-auto'>
-					<p className='guide-lines text-3xl text-center'>
-						I leverage the latest tech stacks to build immersive experiences,
-						design systems, dashboards, and websites
+					<p className=' text-lg md:text-xl xl:text-3xl text-center p-[0.5rem]'>
+						I craft immersive user experiences, dashboards, websites, and more.
+						<br />I do it using modern tech stacks.
 					</p>
 					<LogoGrid />
 				</div>
 			</section>
+			<section className='site-section guide-lines max-w-8xl grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-12 xl:gap-24 py-24 items-start'>
+				<div className='bg-hatch h-[100%] mt-[-0.5rem] p-[1rem]'>
+					<h2
+						className={`text-5xl md:fluid-font xl:text-6xl md:h1 mb-[0.5rem] ${styles['font-gradient']}`}>
+						Ship
+						<br />
+						what
+						<br />
+						matters.
+					</h2>
+					{/* <span className='block text-3xl md:text-xl xl:text-2xl'>
+						& Fix What’s Slowing You Down.
+					</span> */}
+				</div>
+
+				<div>
+					<p className='text-xl text-justify hyphens-auto'>
+						I've spent over a decade helping teams build better products by
+						standardizing frontend patterns and driving alignment between
+						technical execution and product goals. I enable teams to ship high
+						performance interfaces, scale and stabilize growing codebases, and
+						turn messy requirements into clean, shipped features.
+					</p>
+				</div>
+
+				<div>
+					<Link
+						aria-disabled='true'
+						href='#'
+						tabIndex={-1}
+						// onClick={(event) => event.preventDefault()}
+						className={`p-8 text-2xl w-full bg-hatch my-2 ${styles.ctaButton} ${styles.ctaButtonDisabled}`}>
+						<s className='relative'>
+							<span className={styles.ctaText}>Explore Projects</span>
+							<span className='absolute bottom-[-15px] left-0 text-sm'>
+								Coming Soon
+							</span>
+						</s>{' '}
+						<span
+							className={styles.ctaX}
+							aria-hidden='true'
+						/>
+					</Link>
+					<Link
+						href='#'
+						className={`p-8 text-2xl w-full bg-hatch my-2 ${styles.ctaButton}`}>
+						<span className={styles.ctaText}>Get in Touch</span>
+						<span
+							className={styles.ctaArrow}
+							aria-hidden='true'
+						/>
+					</Link>
+				</div>
+			</section>
+
 			<MottoTaglineSection />
 			<WorkCategoriesGSAPSection />
-			<section
+			{/* <section
 				id='project-stack'
 				className='w-full min-h-screen flex-col py-35'>
 				<div className='w-full max-w-9xl mx-auto'>
@@ -72,7 +130,7 @@ export default function Home() {
 					</p>
 					<SlideDeck />
 				</div>
-			</section>
+			</section> */}
 			{/* <section
 				id='projects'
 				className='w-full min-h-screen py-35'>
@@ -86,6 +144,7 @@ export default function Home() {
 				</div>
 				<Slider data={seedSliderData} />
 			</section> */}
-		</article>
+			{/* // </article> */}
+		</>
 	);
 }

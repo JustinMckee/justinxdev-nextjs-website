@@ -161,3 +161,19 @@
 		}
 	}
 }
+
+.font-gradient {
+	background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent; // Fallback for non-webkit browsers
+	display: inline-block; // Important: inline elements don't always show background properly
+	:global(.gs-cursor) {
+		color: #00dfd8; // Use an actual color value
+		-webkit-text-fill-color: #00dfd8;
+		background: none;
+		background-clip: border-box;
+		-webkit-background-clip: border-box;
+	}
+}

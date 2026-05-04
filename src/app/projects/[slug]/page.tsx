@@ -107,8 +107,8 @@ export default function Page() {
 						forStickyItem='#c'
 						start='top bottom'>
 						<div className='md:flex-1'>
-							<h2 className='fluid-font'>
-								Dynamic Event Calendar & Search Infrastructure
+							<h2 className='fluid-font h3'>
+								Dynamic Event Calendar & Discovery
 							</h2>
 							<p>
 								I architected and developed a dynamic calendar system that
@@ -145,8 +145,10 @@ export default function Page() {
 							</p>
 							<p>
 								SEO-friendly category routes and structured single-event detail
-								pages centralize registration and ticketing flow within a
-								scalable routing model.
+								pages centralize registration and ticketing flow. It provides
+								the platform with a scalable routing model for events that
+								change locations, programs, and ticket structures year over
+								year.
 							</p>
 						</div>
 					</StickyTrigger>
@@ -213,7 +215,7 @@ export default function Page() {
 						forStickyItem='#e'
 						start='top bottom'>
 						<div className='md:flex-1'>
-							<h2 className='fluid-font'>
+							<h2 className='fluid-font h3'>
 								Ticket Discovery & Registration Flow
 							</h2>
 							<p>
@@ -238,10 +240,26 @@ export default function Page() {
 					</div>
 				</div>
 			</WithSticky>
-
+			<section
+				id='collage'
+				className='w-full flex-col py-35 z-[5] relative bg-[linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_33%)]'>
+				<div className='headline w-full max-w-5xl mx-auto mb-25 center'>
+					<h1>Something here</h1>
+				</div>
+				<div className='relative full-bleed'>
+					<Image
+						src='/projects/cx3/cx3-collage.webp'
+						alt='Work collage'
+						width={2880}
+						height={1940}
+						className='image w-full h-auto'
+					/>
+				</div>
+				{/* <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_33%)]' /> */}
+			</section>
 			<div className='flex flex-col md:flex-row gap-24 py-24 items-center'>
 				<div className='md:flex-1'>
-					<h2 className='fluid-font'>
+					<h2 className='fluid-font h3'>
 						Ship What Matters. Fix What’s Slowing You Down.
 					</h2>
 					<p>

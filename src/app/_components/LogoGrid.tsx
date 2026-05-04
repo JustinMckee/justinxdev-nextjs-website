@@ -182,11 +182,11 @@ export default function LogoGrid() {
 	});
 
 	return (
-		<div className='guide-lines flex flex-wrap justify-center items-center my-8'>
+		<div className='flex flex-wrap justify-center items-center my-8'>
 			{activeItemsState.map((logo, index) => (
 				<div
 					key={`logo-slot-${index}`}
-					className='flex-1 basis-1/5 aspect-square'>
+					className='flex-none basis-1/3 xl:basis-1/5 aspect-square'>
 					<div
 						ref={(el) => {
 							logoSlotRefs.current[index] = el;
@@ -202,6 +202,7 @@ export default function LogoGrid() {
 										in oklab,
 										${logo.color} 50%,
 										transparent)`,
+									'--bg-hatch-border-rgb': hexToRgb(logo.color),
 									opacity: 0,
 								} as React.CSSProperties
 							}
@@ -210,7 +211,7 @@ export default function LogoGrid() {
 						<div className='text-7xl'>
 							<logo.devicon color={logo.color} />
 						</div>
-						<span className='text-[clamp(0.5rem,1vw,0.75rem)] pt-2 text-center opacity-70'>
+						<span className='text-[clamp(0.8rem,1vw,1.2rem)] xl:pt-2 text-center opacity-70'>
 							{logo.name}
 						</span>
 					</div>

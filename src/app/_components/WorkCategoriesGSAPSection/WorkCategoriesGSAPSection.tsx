@@ -13,141 +13,178 @@ export default function WorkCategoriesGSAPSection() {
 		setupPinnedAnimations();
 	}, []);
 	return (
-		<section
-			id={`${styles['work-categories']}`}
-			className='full-bleed-bg relative min-h-screen items-center gsap-pinned-section bg-black'>
-			<div className={styles['content']}>
-				<div
-					className={`${styles['content-inputs']} gsap-categories__data-binding__inputs`}>
-					<h2 className='text-2xl mb-8 z-20'>
-						Unify your brand + empower your data + accelerate your growth.
-					</h2>
-					<ul>
-						<li className={`guide-lines gsap-category mb-8`}>
-							<h2
-								className={`${styles['gsap-category__heading']} text-4xl font-bold mb-2`}
-								data-bind-input='component-libraries'>
-								<span className={`${styles['gsap-heading-subject']}`}>
-									Component Libraries
-								</span>{' '}
-								<span className={`${styles['gsap-heading-modifier']}`}>
-									crafted for brand consistency.
-								</span>
-							</h2>
-							<p className='gsap-category__paragraph text-2xl'>
+		<>
+			<div className='w-full flex-col py-35 site-section full-bleed-bg-bottom-fade'></div>
+			<section
+				id={`${styles['work-categories']}`}
+				className='relative site-section min-h-screen items-center gsap-pinned-section bg-[--color-bg]'>
+				<div className={`site-section-content ${styles['content']}`}>
+					<div
+						className={`${styles['content-inputs']} gsap-categories__data-binding__inputs`}>
+						<div className='grid grid-cols-1 md:grid-cols-2 mb-12'>
+							<div className='bg-hatch h-[100%] mt-[-0.5rem] p-[1rem]'>
+								<h2
+									className={`text-5xl md:fluid-font xl:text-6xl md:h1 mb-[0.5rem] ${styles['font-gradient']}`}>
+									Build smarter
+									<br />
+									digital experiences.
+								</h2>
+							</div>
+						</div>
+
+						<ul className='z-20 relative mb-12'>
+							<li className={`gsap-category mb-4 md:mb-6 xl:mb-8`}>
+								<p className='text-sm xl:text-2xl mb-2 z-20'>
+									<span className='inline-block bg-hatch'>
+										Brand unification.
+									</span>
+								</p>
+								<h2
+									className={`${styles['gsap-category__heading']} text-2xl md:text-3xl xl:text-4xl font-bold mb-0`}
+									data-bind-input='component-libraries'>
+									<span className={`${styles['gsap-heading-subject']}`}>
+										Component & design systems
+									</span>{' '}
+									<span className={`${styles['gsap-heading-modifier']}`}>
+										crafted for brand consistency.
+									</span>
+								</h2>
+								{/* <p className='gsap-category__paragraph text-2xl'>
 								Streamline your development process with cohesive design systems
 								and reusable component libraries that ensure consistency and
 								efficiency across your projects.
-							</p>
-						</li>
-						<li className={`guide-lines gsap-category mb-8`}>
-							<h2
-								className={`${styles['gsap-category__heading']} text-4xl font-bold mb-2`}
-								data-bind-input='web-applications'>
-								<span className={`${styles['gsap-heading-subject']}`}>
-									Web Applications
-								</span>{' '}
-								<span className={`${styles['gsap-heading-modifier']}`}>
-									engineered for intelligent workflows.
-								</span>
-							</h2>
-							<p className='gsap-category__paragraph text-2xl'>
+							</p> */}
+							</li>
+							<li className={`gsap-category mb-4 md:mb-6 xl:mb-8`}>
+								<p className='text-sm xl:text-2xl mb-2 z-20'>
+									<span className='inline-block bg-hatch'>
+										Data empowerment.
+									</span>
+								</p>
+								<h2
+									className={`${styles['gsap-category__heading']} text-2xl md:text-3xl xl:text-4xl font-bold mb-0`}
+									data-bind-input='web-applications'>
+									<span className={`${styles['gsap-heading-subject']}`}>
+										Web applications
+									</span>{' '}
+									<span className={`${styles['gsap-heading-modifier']}`}>
+										engineered for intelligent workflows.
+									</span>
+								</h2>
+								{/* <p className='gsap-category__paragraph text-2xl'>
 								Build dynamic web applications that support complex tasks,
 								interactions, and user flows. Deliver them seamlessy across all
 								browsers and devices.
-							</p>
-						</li>
-						<li className={`guide-lines gsap-category mb-8`}>
-							<h2
-								className={`${styles['gsap-category__heading']} text-4xl font-bold mb-2`}
-								data-bind-input='websites'>
-								<span className={`${styles['gsap-heading-subject']}`}>
-									Websites, CMS, and eCommerce
-								</span>{' '}
-								<span className={`${styles['gsap-heading-modifier']}`}>
-									architected for discovery.
-								</span>
-							</h2>
-							<p className='gsap-category__paragraph text-2xl'>
+							</p> */}
+							</li>
+							<li className={`gsap-category mb-4 md:mb-6 xl:mb-8`}>
+								<p className='text-sm xl:text-2xl mb-2 z-20'>
+									<span className='inline-block bg-hatch'>
+										Growth acceleration.
+									</span>
+								</p>
+								<h2
+									className={`${styles['gsap-category__heading']} text-2xl md:text-3xl xl:text-4xl font-bold mb-0`}
+									data-bind-input='websites'>
+									<span className={`${styles['gsap-heading-subject']}`}>
+										Websites, CMS, and eCommerce
+									</span>{' '}
+									<span className={`${styles['gsap-heading-modifier']}`}>
+										architected for discovery.
+									</span>
+								</h2>
+								{/* <p className='gsap-category__paragraph text-2xl'>
 								Build websites that guides search engines, shape perception, and
 								expand your brand’s digital reach.
+							</p> */}
+							</li>
+						</ul>
+						{/* <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 xl:gap-24 mb-12'>
+						<div>
+							<p className='text-lg text-justify hyphens-auto'>
+								I build more than fast sites. I create the systems behind them.
+								Combining scalable frontends, intuitive UX workflows, and
+								search-friendly foundations, I deliver experiences optimized for
+								discovery, fast for users, and structured to help teams ship
+								faster and grow.
 							</p>
-						</li>
-					</ul>
+						</div>
+					</div> */}
+					</div>
+					<div
+						className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']}`}>
+						<div
+							className={`${styles['media-stack']}`}
+							data-bind-output='component-libraries'>
+							<div className={`${styles['media-top']}`}>
+								<div className={`${styles['media-wrapper']}`}>
+									<Image
+										src='/hh-etb-01-new-dark.webp'
+										alt='Component Libraries'
+										width={1200}
+										height={1012}
+										className='w-full h-auto'
+									/>
+								</div>
+							</div>
+							<div className={`${styles['media-bottom']}`}>
+								<div className={`${styles['media-wrapper']}`}>
+									<Image
+										src='/hh-etb-02-new-dark.png'
+										alt='Component Libraries'
+										width={1800}
+										height={1500}
+										className='w-full h-auto'
+									/>
+								</div>
+							</div>
+						</div>
+						<div
+							className={`${styles['media-stack']}`}
+							data-bind-output='web-applications'>
+							<div className={`${styles['media-top']}`}>
+								<div className={`${styles['media-wrapper']}`}>
+									<Image
+										src='/hh-ecom-1-new-dark-1.png'
+										alt='Web Applications'
+										width={1800}
+										height={1587}
+										className='w-full h-auto'
+									/>
+								</div>
+							</div>
+							<div className={`${styles['media-bottom']}`}>
+								<div className={`${styles['media-wrapper']}`}>
+									<Image
+										src='/hh-ecom-2-new-1.webp'
+										alt='Component Libraries'
+										width={1800}
+										height={1587}
+										className='w-full h-auto'
+									/>
+								</div>
+							</div>
+						</div>
+						<div
+							className={`${styles['media-stack']}`}
+							data-bind-output='websites'>
+							<div className={`${styles['media-top']}`}>
+								<div className={`${styles['media-wrapper']}`}>
+									<Image
+										src='/hh-cms-new-1.webp'
+										alt='Websites'
+										width={1080}
+										height={864}
+										className='w-full h-auto'
+									/>
+								</div>
+							</div>
+							<div className={`${styles['media-bottom']}`}></div>
+						</div>
+					</div>
 				</div>
-				<div
-					className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']}`}>
-					<div
-						className={`${styles['media-stack']}`}
-						data-bind-output='component-libraries'>
-						<div className={`${styles['media-top']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hh-etb-01-new-dark.webp'
-									alt='Component Libraries'
-									width={1200}
-									height={1012}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-						<div className={`${styles['media-bottom']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hh-etb-02-new-dark.png'
-									alt='Component Libraries'
-									width={1800}
-									height={1500}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-					</div>
-					<div
-						className={`${styles['media-stack']}`}
-						data-bind-output='web-applications'>
-						<div className={`${styles['media-top']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hh-ecom-1-new-dark-1.png'
-									alt='Web Applications'
-									width={1800}
-									height={1587}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-						<div className={`${styles['media-bottom']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hh-ecom-2-new-1.webp'
-									alt='Component Libraries'
-									width={1800}
-									height={1587}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-					</div>
-					<div
-						className={`${styles['media-stack']}`}
-						data-bind-output='websites'>
-						<div className={`${styles['media-top']}`}>
-							<div className={`${styles['media-wrapper']}`}>
-								<Image
-									src='/hh-cms-new-1.webp'
-									alt='Websites'
-									width={1080}
-									height={864}
-									className='w-full h-auto'
-								/>
-							</div>
-						</div>
-						<div className={`${styles['media-bottom']}`}></div>
-					</div>
-				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 }
 
@@ -165,7 +202,7 @@ const pinSection = () => {
 			end: '+=400%',
 			scrub: true,
 			// once: true,
-			markers: true,
+			markers: false,
 			pinSpacing: true,
 		},
 	});

@@ -131,7 +131,7 @@ const setupSlideAnimations = () => {
 			index === 0 ? 0 : pinnedSectionMasterTimeline.duration();
 		pinnedSectionMasterTimeline.addLabel(
 			`slide-${index}-start`,
-			slideStartTime
+			slideStartTime,
 		);
 
 		// Animate the curtain
@@ -151,7 +151,7 @@ const setupSlideAnimations = () => {
 					duration: 5,
 					ease: 'power1.in',
 				},
-				'<'
+				'<',
 			);
 		}
 
@@ -164,7 +164,7 @@ const setupSlideAnimations = () => {
 					duration: 3,
 					ease: 'power2.inOut',
 				},
-				'>+1'
+				'>+1',
 			);
 		}
 
@@ -185,7 +185,7 @@ const setupSlideAnimations = () => {
 					duration: 5,
 					ease: 'power1.in',
 				},
-				nextSlideStartLabel // Now this label exists!
+				nextSlideStartLabel, // Now this label exists!
 			);
 		}
 	});
@@ -203,7 +203,7 @@ const pinSection = () => {
 			start: 'center center',
 			end: `+=${slides.length * 200}%`,
 			scrub: true,
-			markers: true,
+			markers: false,
 			pinSpacing: true,
 		},
 	});

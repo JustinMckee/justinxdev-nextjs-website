@@ -13,15 +13,22 @@
 
 	--bg-pattern-color-mix: color-mix(
 		in oklab,
-		var(--bg-pattern-color) 20%,
+		var(--bg-pattern-color) 15%,
 		transparent
 	);
 	--bg-pattern-color: var(--color-white);
+	--bg-pattern-color-mix-light: color-mix(
+		in oklab,
+		var(--bg-pattern-color) 30%,
+		transparent
+	);
 }
 
 :root {
 	--background: #ffffff;
-	--foreground: #171717;
+	--foreground: var(--color-gray-950);
+	--bg-hatch-border-rgb: 255 255 255;
+	--bg-hatch-border-alpha: 0.15;
 }
 
 @theme inline {
@@ -33,7 +40,7 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #0a0a0a;
+		--background: var(--color-gray-950);
 		--foreground: #ededed;
 	}
 }
@@ -110,7 +117,7 @@ body {
 	}
 	.bg-stipple {
 		background-image: radial-gradient(
-			var(--bg-pattern-color-mix) 1px,
+			var(--bg-pattern-color-mix-light) 1px,
 			transparent 0
 		);
 		background-size: 7px 7px;
@@ -123,6 +130,8 @@ body {
 			transparent 0,
 			transparent 7px
 		);
+		box-shadow: inset 0 0 0 1px
+			rgb(var(--bg-hatch-border-rgb) / var(--bg-hatch-border-alpha));
 	}
 	.bg-x {
 		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="12" y="12" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.5)">×</text></svg>');
@@ -138,45 +147,124 @@ body {
 	}
 	.site-grid {
 		display: grid;
-		grid-template-columns: 50px minmax(0, var(--max-width-9xl)) 50px;
+		grid-template-columns: 10px minmax(0, var(--max-width-9xl)) 10px;
+		column-gap: 2rem;
 		min-height: 100vh;
 		justify-content: center;
 		align-items: stretch;
 	}
+	@variant md {
+		.site-grid {
+			grid-template-columns: 25px minmax(0, var(--max-width-9xl)) 25px;
+		}
+	}
+	@variant xl {
+		.site-grid {
+			grid-template-columns: 50px minmax(0, var(--max-width-9xl)) 50px;
+		}
+	}
 	.site-gutter-left {
 		grid-column: 1;
+		grid-row: 1 / span 9999;
 		box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
 		position: relative;
-		z-index: 1;
-	}
-	.site-content {
-		grid-column: 2;
-		min-width: 0;
+		z-index: 2;
+		align-self: stretch;
+		min-height: 100%;
 	}
 	.site-gutter-right {
 		grid-column: 3;
-		//border: 1px solid hsla(0, 0%, 100%, 0.15);
+		grid-row: 1 / span 9999;
+		box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
 		position: relative;
+		z-index: 2;
+		align-self: stretch;
+		min-height: 100%;
+	}
+	.site-section {
+		grid-column: 2;
+		min-width: 0;
+		position: relative;
+	}
+	.site-section.full-bleed-bg::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
+		width: 100vw;
+		height: 100%;
+		transform: translateX(-50%);
+		background: var(--background);
+		pointer-events: none;
 		z-index: 1;
 	}
-	.full-bleed {
+	.site-section.full-bleed-bg-top-fade::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
 		width: 100vw;
-		margin-left: calc(50% - 50vw);
+		height: 100%;
+		transform: translateX(-50%);
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			var(--background) 65%
+		);
+		pointer-events: none;
+		z-index: 1;
+	}
+	.site-section.full-bleed-bg-bottom-fade::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
+		width: 100vw;
+		height: 100%;
+		transform: translateX(-50%);
+		background: linear-gradient(to top, transparent 0%, var(--background) 65%);
+		pointer-events: none;
+		z-index: 1;
+	}
+	.site-section.full-bleed-bg {
+		position: relative;
+	}
+	.site-section.full-bleed-bg-top-fade,
+	.site-section.full-bleed-bg-bottom-fade {
+		position: relative;
+	}
+	.site-section-content {
+		position: relative;
+		z-index: 3;
+	}
+	.pin-spacer {
+		position: relative;
+		z-index: 3 !important;
+	}
+	.full-bleed {
+		position: relative;
+		left: 50%;
+		width: 100vw;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		z-index: 3;
 	}
 	.full-bleed-bg::before {
 		content: '';
 		position: absolute;
+		z-index: 1;
 		top: 0;
 		left: 0;
+		right: 0;
 		width: 100vw;
 		height: 100%;
 		background-color: var(--background);
 		z-index: -1;
-		margin-left: calc(50% - 50vw);
+		/* margin-left: calc(50% - 50vw); */
 	}
 	.full-bleed-bg {
-		position: relative;
-		z-index: 0;
+		/* position: relative;
+		z-index: 0; */
 	}
 	.guide-lines {
 		position: relative;
@@ -196,9 +284,9 @@ body {
 		right: -100vw;
 	}
 	.guide-lines::before {
-		top: -2px;
+		top: -0.5rem;
 	}
 	.guide-lines::after {
-		bottom: -2px;
+		bottom: -0.5rem;
 	}
 }

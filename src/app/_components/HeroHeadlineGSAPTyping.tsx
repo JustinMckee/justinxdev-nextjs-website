@@ -93,7 +93,7 @@ const animateTagline = () => {
 					text: phrase.noun + ' ',
 					ease: `steps(${phrase.noun.length})`,
 				},
-				'<'
+				'<',
 			)
 			// .to('.gs-noun', {
 			// 	duration: 0.33,

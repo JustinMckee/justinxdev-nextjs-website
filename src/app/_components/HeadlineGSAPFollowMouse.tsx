@@ -1,6 +1,7 @@
 'use client';
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
+
 export default function HeadlineGSAPFollowMouse() {
 	useEffect(() => {
 		/*
@@ -43,23 +44,30 @@ export default function HeadlineGSAPFollowMouse() {
 		};
 	}, []);
 	return (
-		<div className='gs-dynamic-heading'>
-			<h2 className='gs-dynamic-heading__text md:text-6xl lg:text-7xl font-bold text-center mb-8 leading-tight'>
-				<span className='guide-lines gs-dynamic-heading__text inline-block text-5xl leading-none'>
+		<div className={`gs-dynamic-heading text-center `}>
+			<h2
+				className={`gs-dynamic-heading__text text-lg md:text-6xl xl:text-7xl font-bold mb-8 leading-tight `}>
+				<span className='block text-normal text-normal md:text-lg leading-none gs-dynamic-heading__text mb-5 md:mb-2 font-normal opacity-50'>
+					(My Motto)
+				</span>
+				<span
+					className={`bg-hatch gs-dynamic-heading__text inline-block text-3xl md:text-4xl xl:text-5xl leading-none whitespace-nowrap `}>
 					Build fast.
 				</span>
 				<br />
-				<span className='guide-lines gs-dynamic-heading__text inline-block text-7xl leading-none'>
+				<span
+					className={`bg-hatch gs-dynamic-heading__text inline-block text-5xl md:text-6xl xl:text-7xl leading-none whitespace-nowrap `}>
 					Scale smart.
 				</span>
 				<br />
-				<span className='guide-lines gs-dynamic-heading__text inline-block text-9xl leading-none'>
+				<span
+					className={`bg-hatch gs-dynamic-heading__text inline-block  text-7xl md:text-8xl xl:text-9xl leading-none whitespace-nowrap `}>
 					Grow loud.
 				</span>
 			</h2>
-			<p className='guide-lines gs-dynamic-heading__text text-3xl text-center leading-none'>
-				Engineering that hustles as hard as your brand.
-			</p>
+			{/* <p className='gs-dynamic-heading__text text-lg md:text-xl xl:text-3xl text-center leading-none max-w-3xl mx-auto opacity-70'>
+				I help teams move faster, scale smarter, and grow with impact.
+			</p> */}
 		</div>
 	);
 }

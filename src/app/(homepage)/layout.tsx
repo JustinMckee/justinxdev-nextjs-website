@@ -10,11 +10,13 @@ export default function Layout({
 }>) {
 	const mouseTrackingLayer = useRef<HTMLDivElement>(null);
 	return (
-		<div
-			ref={mouseTrackingLayer}
-			className='relative w-full'>
+		<>
+			<div
+				ref={mouseTrackingLayer}
+				className='fixed inset-0 z-0 pointer-events-none'
+			/>
 			{children}
-			<div className={`${styles.gridWrap}`}>
+			<div className={styles.gridWrap}>
 				<div className='pointer-events-none absolute z-[5] inset-0 bg-gradient-to-t from-black via-black/80 to-transparent via-10%' />
 				<div className='pointer-events-none absolute z-[5] inset-0 bg-[radial-gradient(circle_at_66%_50%,transparent_0%,rgba(0,0,0,1)_100%)]' />
 				<GridDistortion
@@ -27,6 +29,6 @@ export default function Layout({
 					mouseTrackingLayer={mouseTrackingLayer}
 				/>
 			</div>
-		</div>
+		</>
 	);
 }
