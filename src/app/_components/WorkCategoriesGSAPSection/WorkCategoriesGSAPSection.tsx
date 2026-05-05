@@ -112,7 +112,7 @@ export default function WorkCategoriesGSAPSection() {
 					</div> */}
 					</div>
 					<div
-						className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']}`}>
+						className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']} !hidden md:!block`}>
 						<div
 							className={`${styles['media-stack']}`}
 							data-bind-output='component-libraries'>
