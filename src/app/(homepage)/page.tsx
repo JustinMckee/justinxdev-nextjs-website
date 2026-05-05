@@ -96,8 +96,8 @@ export default function Home() {
 						className={`p-8 text-2xl w-full bg-hatch my-2 ${styles.ctaButton} ${styles.ctaButtonDisabled}`}>
 						<s className='relative'>
 							<span className={styles.ctaText}>Explore Projects</span>
-							<span className='absolute bottom-[-15px] left-0 text-sm'>
-								Coming Soon
+							<span className='mx-2 p2 bg-hatch text-sm inline-block'>
+								Coming soon
 							</span>
 						</s>{' '}
 						<span

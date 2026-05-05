@@ -193,6 +193,13 @@
 .ctaButtonDisabled {
 	cursor: not-allowed !important;
 	opacity: 0.6;
+	.ctaText {
+		background: linear-gradient(90deg, #007cf0 0%, #00dfd8 100%);
+		opacity: 0.7;
+	}
+	.ctaX {
+		opacity: 0.7;
+	}
 	// pointer-events: none;
 }
 

@@ -14,7 +14,7 @@ export const MottoTaglineSection = () => {
 	return (
 		<section
 			id='collage'
-			className='w-full flex-col py-35 site-section full-bleed-bg-top-fade'>
+			className='w-full flex-col pt-35 site-section full-bleed-bg-top-fade'>
 			<div className='site-section-content'>
 				<div className='headline w-full mx-auto mb-25 center py-12'>
 					<HeadlineGSAPFollowMouse />
@@ -59,7 +59,13 @@ function pinSection() {
 	// 	},
 	// });
 
-	const fadeDistance = 800;
+	const fadeDelayDistance = 300;
+	const fadeDurationDistance = 700;
+	const fadeDistance = fadeDelayDistance + fadeDurationDistance;
+
+	gsap.set(pinTarget!, { position: 'relative' });
+	gsap.set(headline, { position: 'relative', zIndex: 2 });
+	gsap.set(imageWrap, { position: 'relative', zIndex: 3 });
 
 	const timeline = gsap.timeline({
 		scrollTrigger: {
@@ -67,8 +73,8 @@ function pinSection() {
 			start: 'top top',
 			end: `+=${fadeDistance}`,
 			scrub: 1,
-			pin: pinTarget ?? true,
-			pinSpacing: true,
+			pin: headline,
+			pinSpacing: false,
 			markers: false,
 			// onEnter: () => {
 			// 	gsap.set(imageWrap, {
@@ -95,6 +101,15 @@ function pinSection() {
 		},
 	});
 
+	ScrollTrigger.create({
+		trigger: pinnedSection,
+		start: 'top top',
+		end: `+=${fadeDistance / 2}`,
+		pin: imageWrap,
+		pinSpacing: true,
+		markers: false,
+	});
+
 	timeline.fromTo(
 		headline,
 		{
@@ -104,9 +119,9 @@ function pinSection() {
 		{
 			opacity: 0,
 			ease: 'none',
-			duration: 1,
+			duration: fadeDurationDistance,
 		},
-		0,
+		fadeDelayDistance,
 	);
 
 	return timeline;
