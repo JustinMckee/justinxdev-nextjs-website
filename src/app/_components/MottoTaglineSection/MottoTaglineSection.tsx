@@ -19,7 +19,7 @@ export const MottoTaglineSection = () => {
 				<div className='headline w-full mx-auto mb-25 center py-12'>
 					<HeadlineGSAPFollowMouse />
 				</div>
-				<div className='relative full-bleed collage-image'>
+				<div className='relative !w-[150vw] full-bleed collage-image'>
 					<Image
 						src='/collage.webp'
 						alt='Work collage'
