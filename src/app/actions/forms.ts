@@ -20,6 +20,14 @@ export async function submitFooterForm(
 	const email = String(formData.get('email') || '').trim();
 	const heard = String(formData.get('heard') || '').trim();
 	const message = String(formData.get('message') || '').trim();
+	const title = String(formData.get('title') || '').trim();
+
+	if (title) {
+		return {
+			ok: false,
+			error: 'Unable to submit. Please try again.',
+		};
+	}
 
 	if (!name || !email || !heard || !message) {
 		return {

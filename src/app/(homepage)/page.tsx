@@ -24,8 +24,8 @@ export default function Home() {
 							<HeroHeadlineGSAPTyping />
 						</h1>
 						<p className='bg-stipple text-xl guide-lines md:text-3xl lg:text-[2vw] xl:text-4xl p-[0.5rem]'>
-							A technical product manager and frontend engineer passionate about
-							strategic UX and high-impact UI that actually moves the needle.
+							A product engineer passionate about strategic UX, high-impact UI,
+							and shipping code that actually moves the needle.
 						</p>
 					</div>
 					<div className='w-full lg:w-[50%] pt-12 pb-24'>
@@ -34,16 +34,17 @@ export default function Home() {
 							layout='right'
 							images={[
 								{
-									src: '/hero-top.webp',
+									src: '/projects/cx3/cx3-hero-a.jpg',
+
 									alt: 'Hero image of Justin McKee',
-									width: 3200,
-									height: 1915,
+									width: 1920,
+									height: 1343,
 								},
 								{
-									src: '/hero-bottom.webp',
+									src: '/projects/tic/tic-hero.webp',
 									alt: 'Hero image of Justin McKee',
-									width: 3200,
-									height: 1973,
+									width: 1920,
+									height: 1343,
 								},
 							]}
 						/>
@@ -54,10 +55,13 @@ export default function Home() {
 				id='about'
 				className='site-section max-w-9xl w-full flex-col pb-10 xl:pb-35 z-[5]'>
 				<div className='w-full max-w-5xl mx-auto'>
-					<p className=' text-lg md:text-xl xl:text-3xl text-center p-[0.5rem]'>
-						I craft immersive user experiences, dashboards, eCommerce
-						storefronts, and more.
-						<br />I do it with a modern tech stack.
+					<p className='text-lg md:text-xl xl:text-2xl text-center p-[0.5rem]'>
+						I turn ideas and data into clear UX flows, polished UI, and
+						maintainable code - dashboards, eCommerce storefronts, and immersive
+						product surfaces that grow with your business.
+					</p>
+					<p className='text-lg md:text-xl xl:text-2xl text-center p-[0.5rem]'>
+						Built with a modern stack that scales with your team and product.
 					</p>
 					<LogoGrid />
 				</div>
@@ -66,7 +70,7 @@ export default function Home() {
 				<div className='bg-hatch h-[100%] mt-[-0.5rem] p-[1rem]'>
 					<h2
 						className={`text-5xl md:fluid-font xl:text-6xl md:h1 mb-[0.5rem] ${styles['font-gradient']}`}>
-						Ship
+						I Ship
 						<br />
 						what
 						<br />
@@ -80,10 +84,11 @@ export default function Home() {
 				<div>
 					<p className='text-xl text-justify hyphens-auto'>
 						I've spent over a decade helping teams build better products by
-						standardizing frontend patterns and driving alignment between
-						technical execution and product goals. I enable teams to ship high
-						performance interfaces, scale and stabilize growing codebases, and
-						turn messy requirements into clean, shipped features.
+						improving design-to-tech processes and standardizing frontend
+						patterns. Driving the alignment between design, technical execution,
+						and product goals, I enable teams to ship high-performance
+						interfaces, scale and stabilize growing codebases, and turn messy
+						requirements into shipped features.
 					</p>
 				</div>
 

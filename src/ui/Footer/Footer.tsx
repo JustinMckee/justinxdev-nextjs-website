@@ -97,20 +97,21 @@ export const Footer = () => {
 								Solutions that scale with your business.
 							</h2>
 							<p>
-								I consult on technical product strategy and UX direction, and
-								lead architecture engagements that transform complexity into
-								scalable products - helping businesses grow.
+								I consult on technical product strategy, UX direction, and lead
+								architecture engagements that transform complexity into scalable
+								products - helping businesses grow.
 							</p>
 							<p>
-								If you need hands-on delivery, I contract as a builder to ship
-								frontends, workflows, and search-optimized foundations that
-								improve a business's digital footprint.
+								I also handle the design-to-tech stage of projects: UX flows, UI
+								and system design, and building production frontends with
+								minimal handoffs.
 							</p>
 							<p>
-								Across both, I focus on creating fast experiences, maintainable
-								code, and room to scale.
+								Engage me for consulting and architecture, or bring me in as a
+								contracted builder to ship fast experiences, maintainable code,
+								and scalable foundations.
 							</p>
-							<p>I'm open to new opportunities and collaborations.</p>
+							<p>Always open to new opportunities and collaborations.</p>
 						</div>
 						<div>
 							{state.ok ? (
@@ -126,6 +127,18 @@ export const Footer = () => {
 								<form
 									action={formAction}
 									className='flex flex-col space-y-6 bg-hatch p-6'>
+									<div className='sr-only'>
+										<label htmlFor='companyWebsite'>Title</label>
+										<input
+											id='title'
+											name='title'
+											type='text'
+											autoComplete='off'
+											tabIndex={-1}
+											aria-hidden='true'
+											placeholder='Your title'
+										/>
+									</div>
 									{state.error ? (
 										<p className='rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-200'>
 											{state.error}

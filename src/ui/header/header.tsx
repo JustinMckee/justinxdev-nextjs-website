@@ -4,7 +4,7 @@ export const Header = () => {
 	return (
 		<header
 			className={`${styles['blurred-pseudo-bg']} w-full fixed top-0 left-0 z-50 backdrop-blur-md shadow-md px-2`}>
-			<nav className='max-w-9xl mx-auto py-4 grid grid-cols-16 grid-rows-1'>
+			<nav className='max-w-9xl mx-auto py-1 grid grid-cols-16 grid-rows-1'>
 				<div className='col-span-4 col-start-1'>
 					<Link
 						href='/'

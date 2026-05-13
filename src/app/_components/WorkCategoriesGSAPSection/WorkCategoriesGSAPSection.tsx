@@ -112,14 +112,14 @@ export default function WorkCategoriesGSAPSection() {
 					</div> */}
 					</div>
 					<div
-						className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']} !hidden md:!block`}>
+						className={`${styles['content-outputs']} gsap-categories__data-binding__outputs ${styles['media-stacks-wrapper']} !hidden md:!grid`}>
 						<div
 							className={`${styles['media-stack']}`}
 							data-bind-output='component-libraries'>
 							<div className={`${styles['media-top']}`}>
 								<div className={`${styles['media-wrapper']}`}>
 									<Image
-										src='/hh-etb-01-new-dark.webp'
+										src='/design-system-color-tokens.webp'
 										alt='Component Libraries'
 										width={1200}
 										height={1012}
@@ -130,7 +130,7 @@ export default function WorkCategoriesGSAPSection() {
 							<div className={`${styles['media-bottom']}`}>
 								<div className={`${styles['media-wrapper']}`}>
 									<Image
-										src='/hh-etb-02-new-dark.png'
+										src='/design-system-components.webp'
 										alt='Component Libraries'
 										width={1800}
 										height={1500}
@@ -145,7 +145,7 @@ export default function WorkCategoriesGSAPSection() {
 							<div className={`${styles['media-top']}`}>
 								<div className={`${styles['media-wrapper']}`}>
 									<Image
-										src='/hh-ecom-1-new-dark-1.png'
+										src='/app-a.webp'
 										alt='Web Applications'
 										width={1800}
 										height={1587}
@@ -156,7 +156,7 @@ export default function WorkCategoriesGSAPSection() {
 							<div className={`${styles['media-bottom']}`}>
 								<div className={`${styles['media-wrapper']}`}>
 									<Image
-										src='/hh-ecom-2-new-1.webp'
+										src='/app-b.webp'
 										alt='Component Libraries'
 										width={1800}
 										height={1587}
@@ -171,7 +171,7 @@ export default function WorkCategoriesGSAPSection() {
 							<div className={`${styles['media-top']}`}>
 								<div className={`${styles['media-wrapper']}`}>
 									<Image
-										src='/hh-cms-new-1.webp'
+										src='/web-cms.webp'
 										alt='Websites'
 										width={1080}
 										height={864}
