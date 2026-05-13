@@ -21,6 +21,7 @@
 		"react-dom": "19.2.0",
 		"resend": "^6.9.4",
 		"sass": "^1.93.3",
+		"styled-jsx": "^5.1.7",
 		"three": "^0.182.0"
 	},
 	"devDependencies": {
