@@ -2,8 +2,6 @@
 
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export type FooterFormState = {
 	ok: boolean;
 	error?: string;
@@ -16,6 +14,15 @@ export async function submitFooterForm(
 	prevState: FooterFormState,
 	formData: FormData,
 ): Promise<FooterFormState> {
+	const apiKey = process.env.RESEND_API_KEY;
+	if (!apiKey) {
+		return {
+			ok: false,
+			error: 'Email service is unavailable right now. Please try again later.',
+		};
+	}
+	const resend = new Resend(apiKey);
+
 	const name = String(formData.get('name') || '').trim();
 	const email = String(formData.get('email') || '').trim();
 	const heard = String(formData.get('heard') || '').trim();
