@@ -15,6 +15,7 @@ export async function submitFooterForm(
 	formData: FormData,
 ): Promise<FooterFormState> {
 	const apiKey = process.env.RESEND_API_KEY;
+	console.log('RESEND_API_KEY present:', Boolean(apiKey));
 	if (!apiKey) {
 		return {
 			ok: false,
