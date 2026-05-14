@@ -6,6 +6,7 @@ frontend:
         - 'npx pnpm install --config.strict-dep-builds=false'
     build:
       commands:
+        - echo "RESEND_API_KEY=$RESEND_API_KEY" >> .env.production
         - 'PNPM_CONFIG_STRICT_DEP_BUILDS=false npx pnpm run build'
   artifacts:
     baseDirectory: .next
