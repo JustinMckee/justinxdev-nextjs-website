@@ -6,7 +6,7 @@ import { archivoNarrow, geistSans, geistMono } from '@/lib/fonts';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 	? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-	: new URL('http://localhost:3000');
+	: new URL('https://justinxdev.com');
 const siteTitle = 'Justin McKee, Product Engineer';
 const siteDescription =
 	'Strategic UX, high-impact UI, and shipped code that actually moves the needle.';

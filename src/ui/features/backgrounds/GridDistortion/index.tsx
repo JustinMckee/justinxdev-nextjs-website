@@ -206,7 +206,8 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			vY: 0,
 		};
 
-		const handleMouseMove = (e: MouseEvent) => {
+		const handleMouseMove = (event: Event) => {
+			const e = event as MouseEvent;
 			const width = window.innerWidth || 1;
 			const height = window.innerHeight || 1;
 			const x = e.clientX / width;
@@ -317,7 +318,7 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			cameraRef.current = null;
 			planeRef.current = null;
 		};
-	}, [grid, mouse, strength, relaxation, imageSrc]);
+	}, [grid, mouse, strength, relaxation, imageSrc, mouseTrackingLayer]);
 
 	return (
 		<div
