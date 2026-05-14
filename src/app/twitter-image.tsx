@@ -5,6 +5,10 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default function TwitterImage() {
+	const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+		? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+		: new URL('https://justinxdev.com');
+	const gridUrl = new URL('/backgrounds/relief-grid.jpg', baseUrl).toString();
 	return new ImageResponse(
 		<div
 			style={{
@@ -14,8 +18,11 @@ export default function TwitterImage() {
 				alignItems: 'center',
 				justifyContent: 'center',
 				backgroundColor: '#0b0f1a',
-				// backgroundImage:
-				// 	'linear-gradient(135deg, rgba(0,124,240,0.35), rgba(0,223,216,0.35))',
+				backgroundImage: `url(${gridUrl})`,
+				backgroundSize: 'cover',
+				backgroundPosition: 'center',
+				backgroundRepeat: 'no-repeat',
+				boxShadow: 'inset 0 0 0 9999px rgba(11, 15, 26, 0.45)',
 				color: '#ffffff',
 				fontSize: 32,
 				fontWeight: 700,
