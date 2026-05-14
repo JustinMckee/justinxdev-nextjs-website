@@ -62,7 +62,7 @@ export const Header = () => {
 						GitHub
 					</Link>
 					<Link
-						href='#contact'
+						href='#get-in-touch'
 						className={`bg-hatch px-2 md:px-4 py-2 rounded-md text-sm md:text-md font-medium ml-4 ${styles.ctaButton}`}>
 						<span className={styles.ctaText}>Get in Touch</span>
 					</Link>

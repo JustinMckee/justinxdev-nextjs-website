@@ -111,7 +111,7 @@ export default function Home() {
 						/>
 					</Link>
 					<Link
-						href='#'
+						href='#get-in-touch'
 						className={`p-8 text-2xl w-full bg-hatch my-2 ${styles.ctaButton}`}>
 						<span className={styles.ctaText}>Get in Touch</span>
 						<span

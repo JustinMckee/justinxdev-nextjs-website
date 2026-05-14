@@ -63,6 +63,11 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 		const canTrackCursor = window.matchMedia(
 			'(hover: hover) and (pointer: fine)',
 		).matches;
+		const eventTarget: Window | HTMLElement =
+			trackingContainer instanceof HTMLElement &&
+			getComputedStyle(trackingContainer).pointerEvents !== 'none'
+				? trackingContainer
+				: window;
 
 		const scene = new THREE.Scene();
 		sceneRef.current = scene;
@@ -233,8 +238,8 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 		};
 
 		if (canTrackCursor) {
-			trackingContainer.addEventListener('mousemove', handleMouseMove);
-			trackingContainer.addEventListener('mouseleave', handleMouseLeave);
+			eventTarget.addEventListener('mousemove', handleMouseMove);
+			eventTarget.addEventListener('mouseleave', handleMouseLeave);
 		}
 
 		handleResize();
@@ -291,8 +296,8 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
 			}
 
 			if (canTrackCursor) {
-				trackingContainer.removeEventListener('mousemove', handleMouseMove);
-				trackingContainer.removeEventListener('mouseleave', handleMouseLeave);
+				eventTarget.removeEventListener('mousemove', handleMouseMove);
+				eventTarget.removeEventListener('mouseleave', handleMouseLeave);
 			}
 
 			if (renderer) {

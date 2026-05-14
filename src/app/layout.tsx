@@ -7,9 +7,9 @@ import { archivoNarrow, geistSans, geistMono } from '@/lib/fonts';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 	? new URL(process.env.NEXT_PUBLIC_SITE_URL)
 	: new URL('http://localhost:3000');
-const siteTitle = 'Justin McKee';
+const siteTitle = 'Justin McKee, Product Engineer';
 const siteDescription =
-	'Frontend engineer focused on strategic UX, high-impact UI, and scalable web experiences.';
+	'Strategic UX, high-impact UI, and shipped code that actually moves the needle.';
 
 export const metadata: Metadata = {
 	metadataBase: siteUrl,

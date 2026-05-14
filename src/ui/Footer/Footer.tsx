@@ -113,7 +113,7 @@ export const Footer = () => {
 							</p>
 							<p>Always open to new opportunities and collaborations.</p>
 						</div>
-						<div>
+						<div id='get-in-touch'>
 							{state.ok ? (
 								<div className='rounded-lg border border-white/10 bg-white/5 p-6 text-white'>
 									<h3 className='text-xl font-semibold'>
