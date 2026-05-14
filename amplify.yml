@@ -3,7 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - 'npx pnpm install --config.only-built-dependencies=@parcel/watcher,sharp,unrs-resolver'
+        - 'npx pnpm config set only-built-dependencies @parcel/watcher sharp unrs-resolver'
+        - 'npx pnpm config set strict-dep-builds false'
+        - 'npx pnpm install'
     build:
       commands:
         - 'npx pnpm run build'
