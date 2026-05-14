@@ -8,7 +8,10 @@ export default function OpenGraphImage() {
 	const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
 		? new URL(process.env.NEXT_PUBLIC_SITE_URL)
 		: new URL('https://justinxdev.com');
-	const gridUrl = new URL('/backgrounds/relief-grid.jpg', baseUrl).toString();
+	const gridUrl = new URL(
+		'/backgrounds/relief-grid-1200x630.jpg',
+		baseUrl,
+	).toString();
 
 	return new ImageResponse(
 		<div
