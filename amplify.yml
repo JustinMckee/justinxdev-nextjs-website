@@ -6,7 +6,7 @@ frontend:
         - 'npx pnpm install --config.strict-dep-builds=false'
     build:
       commands:
-        - 'npx pnpm run build'
+        - 'PNPM_CONFIG_STRICT_DEP_BUILDS=false npx pnpm run build'
   artifacts:
     baseDirectory: .next
     files:
