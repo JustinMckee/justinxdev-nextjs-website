@@ -25,8 +25,10 @@
 }
 
 :root {
-	--background: #ffffff;
-	--foreground: var(--color-gray-950);
+	--background: var(--color-gray-950);
+	--foreground: #ededed;
+	/* --background: #ffffff;
+	--foreground: var(--color-gray-950); */
 	--bg-hatch-border-rgb: 255 255 255;
 	--bg-hatch-border-alpha: 0.15;
 }
