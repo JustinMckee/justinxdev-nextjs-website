@@ -10,8 +10,12 @@ import { ImageStack } from '@/ui/common/ImageStack';
 import { MottoTaglineSection } from '../_components/MottoTaglineSection/MottoTaglineSection';
 import Link from 'next/link';
 import { X, XIcon } from 'lucide-react';
+import { redirect } from 'next/dist/client/components/navigation';
 
 export default function Home() {
+	if (process.env.MAINTENANCE_MODE === 'true') {
+		redirect('/maintenance');
+	}
 	return (
 		<>
 			{/* <article className='flex flex-col w-full items-center justify-center'> */}
